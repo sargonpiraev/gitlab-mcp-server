@@ -135,4 +135,4 @@ We use semantic-release for automated versioning and publishing:
 
 ## 📄 License
 
-By contributing to GitLab API MCP Server, you agree that your contributions will be licensed under the MIT License. 
+By contributing to GitLab API MCP Server, you agree that your contributions will be licensed under the MIT License.

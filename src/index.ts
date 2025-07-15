@@ -1,29 +1,29 @@
 #!/usr/bin/env node
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import { z } from 'zod'
-import axios, { AxiosInstance } from 'axios'
-import dotenv from 'dotenv'
-import { CallToolResult } from '@modelcontextprotocol/sdk/types.js'
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+import axios, { AxiosInstance } from "axios";
+import dotenv from "dotenv";
+import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 
 // Load environment variables
-dotenv.config()
+dotenv.config();
 
 // Environment configuration schema
 const envSchema = z.object({
   GITLAB_API_KEY: z.string().min(1),
-//  TOOL_GLOB_PATTERNS: z.string().optional(),
-//  LOG_LEVEL: z.enum(['debug', 'info', 'notice', 'warning', 'error']).default('info').optional(),
-})
+  //  TOOL_GLOB_PATTERNS: z.string().optional(),
+  //  LOG_LEVEL: z.enum(['debug', 'info', 'notice', 'warning', 'error']).default('info').optional(),
+});
 
 // Parse and validate environment variables
-const env = envSchema.parse(process.env)
+const env = envSchema.parse(process.env);
 
 const mcpServer = new McpServer(
   {
-    name: '@sargonpiraev/gitlab-mcp-server',
-    version: '',
+    name: "@sargonpiraev/gitlab-mcp-server",
+    version: "",
   },
   {
     capabilities: {
@@ -31,86 +31,102 @@ const mcpServer = new McpServer(
       logging: {},
     },
     instructions: `MCP server for GitLab API integration`,
-  }
-)
+  },
+);
 
 const logger = {
   log: (...message: (string | object)[]) =>
-    mcpServer.server.sendLoggingMessage({ level: 'info', data: message.join(' ') }),
+    mcpServer.server.sendLoggingMessage({
+      level: "info",
+      data: message.join(" "),
+    }),
   error: (...message: (string | object)[]) =>
-    mcpServer.server.sendLoggingMessage({ level: 'error', data: message.join(' ') }),
+    mcpServer.server.sendLoggingMessage({
+      level: "error",
+      data: message.join(" "),
+    }),
   debug: (...message: (string | object)[]) =>
-    mcpServer.server.sendLoggingMessage({ level: 'debug', data: message.join(' ') }),
-}
+    mcpServer.server.sendLoggingMessage({
+      level: "debug",
+      data: message.join(" "),
+    }),
+};
 
 // Axios client setup
 const apiClient: AxiosInstance = axios.create({
-  baseURL: '',
+  baseURL: "",
   headers: {
-    'Accept': 'application/json'
+    Accept: "application/json",
   },
-  timeout: 30000
-})
+  timeout: 30000,
+});
 
 // Add request interceptor for environment variables
-apiClient.interceptors.request.use((config) => {
-  if (env.GITLAB_API_KEY) {
-    config.headers['Authorization'] = env.GITLAB_API_KEY
-  }
-  
-  return config
-}, (error) => {
-  return Promise.reject(error)
-})
+apiClient.interceptors.request.use(
+  (config) => {
+    if (env.GITLAB_API_KEY) {
+      config.headers["Authorization"] = env.GITLAB_API_KEY;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 function handleError(error: unknown) {
-  console.error(error)
-  logger.error('Error occurred:', JSON.stringify(error))
-  
+  console.error(error);
+  logger.error("Error occurred:", JSON.stringify(error));
+
   if (axios.isAxiosError(error)) {
-    const message = error.response?.data?.description || error.message
-    return { 
-      isError: true, 
-      content: [{ type: 'text', text: `API Error: ${message}` }] 
-    } as CallToolResult
+    const message = error.response?.data?.description || error.message;
+    return {
+      isError: true,
+      content: [{ type: "text", text: `API Error: ${message}` }],
+    } as CallToolResult;
   }
-  
-  return { 
-    isError: true, 
-    content: [{ type: 'text', text: `Error: ${error}` }] 
-  } as CallToolResult
+
+  return {
+    isError: true,
+    content: [{ type: "text", text: `Error: ${error}` }],
+  } as CallToolResult;
 }
 
 // Tools
 mcpServer.tool(
-  'get-groups-access-requests',
+  "get-groups-access-requests",
   `Gets a list of access requests for a group.`,
   z.object({}),
   async (args) => {
-  try {
-    const response = await apiClient.get('/api/v4/groups/{id}/access_requests', {
-      params: args
-    })
-    return { 
-      content: [{ 
-        type: 'text', 
-        text: JSON.stringify(response.data, null, 2) 
-      }] 
+    try {
+      const response = await apiClient.get(
+        "/api/v4/groups/{id}/access_requests",
+        {
+          params: args,
+        },
+      );
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(response.data, null, 2),
+          },
+        ],
+      };
+    } catch (error) {
+      return handleError(error);
     }
-  } catch (error) {
-    return handleError(error)
-  }
-}
-)
-
+  },
+);
 
 async function main() {
-  const transport = new StdioServerTransport()
-  await mcpServer.server.connect(transport)
-  logger.log('GitLab API MCP Server started')
+  const transport = new StdioServerTransport();
+  await mcpServer.server.connect(transport);
+  logger.log("GitLab API MCP Server started");
 }
 
 main().catch((error) => {
-  console.error('Server error:', error)
-  process.exit(1)
-}) 
+  console.error("Server error:", error);
+  process.exit(1);
+});
