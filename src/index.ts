@@ -82,6 +82,27 @@ function handleError(error: unknown) {
 }
 
 // Tools
+mcpServer.tool(
+  'get-groups-access-requests',
+  `Gets a list of access requests for a group.`,
+  z.object({}),
+  async (args) => {
+  try {
+    const response = await apiClient.get('/api/v4/groups/{id}/access_requests', {
+      params: args
+    })
+    return { 
+      content: [{ 
+        type: 'text', 
+        text: JSON.stringify(response.data, null, 2) 
+      }] 
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+}
+)
+
 
 async function main() {
   const transport = new StdioServerTransport()

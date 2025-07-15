@@ -7,6 +7,18 @@ MCP server for GitLab API integration
 
 ## Features
 
+- 🔌 **Seamless AI Integration**: Direct GitLab API access from Claude, Cursor, and VS Code
+- 🤖 **Automated Workflows**: Automate gitlab operations and data management
+- 📊 **Complete API Coverage**: Comprehensive GitLab API API integration
+- ⚡ **Real-time Operations**: Execute gitlab actions instantly from AI assistants
+
+## Get Your Credentials
+
+Before installation, you'll need to obtain your API credentials:
+
+1. **GITLAB_API_KEY**: Your GitLab API API key
+
+Save these credentials for the installation steps below.
 
 ## Installation
 
@@ -39,7 +51,7 @@ Add to your Cursor `~/.cursor/mcp.json` file:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        // Add required environment variables here
+        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
       }
     }
   }
@@ -63,7 +75,7 @@ Or add manually to your VS Code settings:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        // Add required environment variables here
+        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
       }
     }
   }
@@ -84,7 +96,7 @@ Add to your `claude_desktop_config.json`:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        // Add required environment variables here
+        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
       }
     }
   }
@@ -95,7 +107,7 @@ Add to your `claude_desktop_config.json`:
 
 ## Available Tools
 
-- **`paths.api.v4.groups.id.access_requests.get`**: 
+- **`get-groups-access-requests`**: Execute get-groups-access-requests operation
 
 **Total: 1 tools available** 🎯
 
