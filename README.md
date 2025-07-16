@@ -107,9 +107,13 @@ Add to your `claude_desktop_config.json`:
 
 ## Available Tools
 
-- **`paths./api/v4/projects`**: Execute paths./api/v4/projects operation
+- **`get-projects`**: Execute get-projects operation
+- **`post-projects`**: Execute post-projects operation
+- **`get-projects`**: Execute get-projects operation
+- **`put-projects`**: Execute put-projects operation
+- **`delete-projects`**: Execute delete-projects operation
 
-**Total: 1 tools available** 🎯
+**Total: 5 tools available** 🎯
 
 ## Support This Project
 
