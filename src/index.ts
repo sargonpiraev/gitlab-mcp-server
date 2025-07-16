@@ -12,7 +12,7 @@ dotenv.config()
 
 // Environment configuration schema
 const envSchema = z.object({
-  GITLAB_API_KEY: z.string().min(1),
+  GITLAB_TOKEN: z.string().min(1),
   //  TOOL_GLOB_PATTERNS: z.string().optional(),
   //  LOG_LEVEL: z.enum(['debug', 'info', 'notice', 'warning', 'error']).default('info').optional(),
 })
@@ -30,7 +30,7 @@ const mcpServer = new McpServer(
       tools: {},
       logging: {},
     },
-    instructions: `MCP server for GitLab API integration`,
+    instructions: `MCP Server for GitLab API - repository management and DevOps automation`,
   }
 )
 
@@ -55,8 +55,8 @@ const apiClient: AxiosInstance = axios.create({
 // Add request interceptor for environment variables
 apiClient.interceptors.request.use(
   (config) => {
-    if (env.GITLAB_API_KEY) {
-      config.headers['Authorization'] = env.GITLAB_API_KEY
+    if (env.GITLAB_TOKEN) {
+      config.headers['Authorization'] = env.GITLAB_TOKEN
     }
 
     return config
@@ -85,28 +85,11 @@ function handleError(error: unknown) {
 }
 
 // Tools
-mcpServer.tool('get-groups-access-requests', `Gets a list of access requests for a group.`, {}, async (args) => {
-  try {
-    const response = await apiClient.get('/api/v4/groups/{id}/access_requests', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
-    }
-  } catch (error) {
-    return handleError(error)
-  }
-})
 
 async function main() {
   const transport = new StdioServerTransport()
   await mcpServer.server.connect(transport)
-  logger.log('GitLab API MCP Server started')
+  logger.log('GitLab MCP Server started')
 }
 
 main().catch((error) => {

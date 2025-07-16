@@ -1,22 +1,22 @@
-# GitLab API MCP Server
+# GitLab MCP Server
 
 ![npm version](https://img.shields.io/npm/v/@sargonpiraev/gitlab-mcp-server)
 ![smithery badge](https://smithery.ai/badge/@sargonpiraev/gitlab-mcp-server)
 
-MCP server for GitLab API integration
+MCP Server for GitLab API - repository management and DevOps automation
 
 ## Features
 
-- 🔌 **Seamless AI Integration**: Direct GitLab API access from Claude, Cursor, and VS Code
-- 🤖 **Automated Workflows**: Automate gitlab operations and data management
-- 📊 **Complete API Coverage**: Comprehensive GitLab API API integration
-- ⚡ **Real-time Operations**: Execute gitlab actions instantly from AI assistants
+- 🔧 Repository Management - Create, update, and manage GitLab repositories
+- 🚀 DevOps Integration - Seamless GitLab operations from AI assistants
+- 📋 Project Automation - Automate project setup and configuration
+- ⚡ Workflow Enhancement - Streamline development workflows with AI
 
 ## Get Your Credentials
 
 Before installation, you'll need to obtain your API credentials:
 
-1. **GITLAB_API_KEY**: Your GitLab API API key
+1. **GITLAB_TOKEN**: Your GitLab personal access token
 
 Save these credentials for the installation steps below.
 
@@ -25,7 +25,7 @@ Save these credentials for the installation steps below.
 <details>
 <summary><b>Installing via Smithery</b></summary>
 
-To install GitLab API MCP Server for any client automatically via [Smithery](https://smithery.ai):
+To install GitLab MCP Server for any client automatically via [Smithery](https://smithery.ai):
 
 ```bash
 npx -y @smithery/cli@latest install @sargonpiraev/gitlab-mcp-server --client <CLIENT_NAME>
@@ -51,7 +51,7 @@ Add to your Cursor `~/.cursor/mcp.json` file:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
+        "GITLAB_TOKEN": "your-GITLAB_TOKEN-here"
       }
     }
   }
@@ -75,7 +75,7 @@ Or add manually to your VS Code settings:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
+        "GITLAB_TOKEN": "your-GITLAB_TOKEN-here"
       }
     }
   }
@@ -96,7 +96,7 @@ Add to your `claude_desktop_config.json`:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-GITLAB_API_KEY-here"
+        "GITLAB_TOKEN": "your-GITLAB_TOKEN-here"
       }
     }
   }
@@ -107,7 +107,7 @@ Add to your `claude_desktop_config.json`:
 
 ## Available Tools
 
-- **`get-groups-access-requests`**: Execute get-groups-access-requests operation
+- **`get-projects`**: Execute get-projects operation
 
 **Total: 1 tools available** 🎯
 

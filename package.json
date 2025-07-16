@@ -1,7 +1,7 @@
 {
   "name": "@sargonpiraev/gitlab-mcp-server",
   "version": "",
-  "description": "MCP server for GitLab API integration",
+  "description": "MCP Server for GitLab API - repository management and DevOps automation",
   "keywords": [
     "mcp",
     "claude",
