@@ -45,7 +45,7 @@ const logger = {
 
 // Axios client setup
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'https://gitlab.com',
+  baseURL: '',
   headers: {
     Accept: 'application/json',
   },
@@ -66,7 +66,18 @@ apiClient.interceptors.request.use(
   }
 )
 
-function handleError(error: unknown) {
+function handleResult(data: unknown): CallToolResult {
+  return {
+    content: [
+      {
+        type: 'text',
+        text: JSON.stringify(data, null, 2),
+      },
+    ],
+  }
+}
+
+function handleError(error: unknown): CallToolResult {
   console.error(error)
   logger.error('Error occurred:', JSON.stringify(error))
 
@@ -85,95 +96,132 @@ function handleError(error: unknown) {
 }
 
 // Tools
-mcpServer.tool('get-projects', `Get a list of visible projects for authenticated user`, {}, async (args) => {
-  try {
-    const response = await apiClient.get('/api/v4/projects', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
+mcpServer.tool(
+  'get-projects',
+  `Get a list of visible projects for authenticated user`,
+  {
+    order_by: z.any().optional(),
+    sort: z.any().optional(),
+    archived: z.any().optional(),
+    visibility: z.any().optional(),
+    search: z.any().optional(),
+    search_namespaces: z.any().optional(),
+    owned: z.any().optional(),
+    starred: z.any().optional(),
+    imported: z.any().optional(),
+    membership: z.any().optional(),
+    with_issues_enabled: z.any().optional(),
+    with_merge_requests_enabled: z.any().optional(),
+    with_programming_language: z.any().optional(),
+    min_access_level: z.any().optional(),
+    id_after: z.any().optional(),
+    id_before: z.any().optional(),
+    last_activity_after: z.any().optional(),
+    last_activity_before: z.any().optional(),
+    repository_storage: z.any().optional(),
+    topic: z.any().optional(),
+    topic_id: z.any().optional(),
+    updated_before: z.any().optional(),
+    updated_after: z.any().optional(),
+    include_pending_delete: z.any().optional(),
+    marked_for_deletion_on: z.any().optional(),
+    active: z.any().optional(),
+    wiki_checksum_failed: z.any().optional(),
+    repository_checksum_failed: z.any().optional(),
+    include_hidden: z.any().optional(),
+    page: z.any().optional(),
+    per_page: z.any().optional(),
+    simple: z.any().optional(),
+    statistics: z.any().optional(),
+    with_custom_attributes: z.any().optional(),
+  },
+  async (args) => {
+    try {
+      const response = await apiClient.get('/api/v4/projects', {
+        params: args,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
     }
-  } catch (error) {
-    return handleError(error)
   }
-})
+)
 
 mcpServer.tool('post-projects', `Create new project`, {}, async (args) => {
   try {
-    const response = await apiClient.post('/api/v4/projects', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
-    }
+    const response = await apiClient.post('/api/v4/projects', args)
+    return handleResult(response.data)
   } catch (error) {
     return handleError(error)
   }
 })
 
-mcpServer.tool('get-projects', `Get a single project`, {}, async (args) => {
-  try {
-    const response = await apiClient.get('/api/v4/projects/{id}', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
-    }
-  } catch (error) {
-    return handleError(error)
-  }
-})
+mcpServer.tool(
+  'get-projects-by-id',
+  `Get a single project`,
+  {
+    id: z.string().min(1),
+    statistics: z.any().optional(),
+    with_custom_attributes: z.any().optional(),
+    license: z.any().optional(),
+  },
+  async (args) => {
+    try {
+      // Extract path parameters and query parameters
+      const { id, ...queryParams } = args
+      const url = `/api/v4/projects/${id}`
 
-mcpServer.tool('put-projects', `Update an existing project`, {}, async (args) => {
-  try {
-    const response = await apiClient.put('/api/v4/projects/{id}', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
+      const response = await apiClient.get(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
     }
-  } catch (error) {
-    return handleError(error)
   }
-})
+)
 
-mcpServer.tool('delete-projects', `Delete a project`, {}, async (args) => {
-  try {
-    const response = await apiClient.delete('/api/v4/projects/{id}', {
-      params: args,
-    })
-    return {
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(response.data, null, 2),
-        },
-      ],
+mcpServer.tool(
+  'put-projects-by-id',
+  `Update an existing project`,
+  {
+    id: z.string().min(1),
+  },
+  async (args) => {
+    try {
+      // Extract path parameters and request data
+      const { id, ...requestData } = args
+      const url = `/api/v4/projects/${id}`
+
+      const response = await apiClient.put(url, requestData)
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
     }
-  } catch (error) {
-    return handleError(error)
   }
-})
+)
+
+mcpServer.tool(
+  'delete-projects-by-id',
+  `Delete a project`,
+  {
+    id: z.string().min(1),
+  },
+  async (args) => {
+    try {
+      // Extract path parameters and query parameters
+      const { id, ...queryParams } = args
+      const url = `/api/v4/projects/${id}`
+
+      const response = await apiClient.delete(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
 
 async function main() {
   const transport = new StdioServerTransport()
