@@ -45,7 +45,7 @@ const logger = {
 
 // Axios client setup
 const apiClient: AxiosInstance = axios.create({
-  baseURL: '',
+  baseURL: 'https://gitlab.com',
   headers: {
     Accept: 'application/json',
   },
@@ -56,7 +56,7 @@ const apiClient: AxiosInstance = axios.create({
 apiClient.interceptors.request.use(
   (config) => {
     if (env.GITLAB_TOKEN) {
-      config.headers['Authorization'] = env.GITLAB_TOKEN
+      config.headers['PRIVATE-TOKEN'] = env.GITLAB_TOKEN
     }
 
     return config
@@ -85,6 +85,95 @@ function handleError(error: unknown) {
 }
 
 // Tools
+mcpServer.tool('get-projects', `Get a list of visible projects for authenticated user`, {}, async (args) => {
+  try {
+    const response = await apiClient.get('/api/v4/projects', {
+      params: args,
+    })
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+})
+
+mcpServer.tool('post-projects', `Create new project`, {}, async (args) => {
+  try {
+    const response = await apiClient.post('/api/v4/projects', {
+      params: args,
+    })
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+})
+
+mcpServer.tool('get-projects', `Get a single project`, {}, async (args) => {
+  try {
+    const response = await apiClient.get('/api/v4/projects/{id}', {
+      params: args,
+    })
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+})
+
+mcpServer.tool('put-projects', `Update an existing project`, {}, async (args) => {
+  try {
+    const response = await apiClient.put('/api/v4/projects/{id}', {
+      params: args,
+    })
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+})
+
+mcpServer.tool('delete-projects', `Delete a project`, {}, async (args) => {
+  try {
+    const response = await apiClient.delete('/api/v4/projects/{id}', {
+      params: args,
+    })
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(response.data, null, 2),
+        },
+      ],
+    }
+  } catch (error) {
+    return handleError(error)
+  }
+})
 
 async function main() {
   const transport = new StdioServerTransport()
