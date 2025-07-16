@@ -107,7 +107,7 @@ Add to your `claude_desktop_config.json`:
 
 ## Available Tools
 
-- **`get-projects`**: Execute get-projects operation
+- **`paths./api/v4/projects`**: Execute paths./api/v4/projects operation
 
 **Total: 1 tools available** 🎯
 
