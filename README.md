@@ -107,11 +107,11 @@ Add to your `claude_desktop_config.json`:
 
 ## Available Tools
 
-- **`get-projects`**: Execute get-projects operation
-- **`post-projects`**: Execute post-projects operation
-- **`get-projects`**: Execute get-projects operation
-- **`put-projects`**: Execute put-projects operation
-- **`delete-projects`**: Execute delete-projects operation
+- **`get-projects`**: Get a list of visible projects for authenticated user
+- **`post-projects`**: Create new project
+- **`get-projects-by-id`**: Get a single project
+- **`put-projects-by-id`**: Update an existing project
+- **`delete-projects-by-id`**: Delete a project
 
 **Total: 5 tools available** 🎯
 
