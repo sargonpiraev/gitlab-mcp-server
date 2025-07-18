@@ -39,7 +39,7 @@ const logger = {
 }
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: '',
+  baseURL: 'https://api.gitlab.com',
   headers: {
     'Accept': 'application/json'
   },
@@ -79,6 +79,225 @@ function handleError(error: unknown): CallToolResult {
     content: [{ type: 'text', text: `Error: ${error}` }] 
   } as CallToolResult
 }
+
+mcpServer.tool(
+  'get-groups-access-requests',
+  `Gets a list of access requests for a group.`,
+  {
+    id: z.string(),
+    page: z.string().optional(),
+    per_page: z.string().optional(),
+  },
+  async (args) => {
+    try {
+      const { id, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/access_requests`
+
+      const response = await apiClient.get(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'post-groups-access-requests',
+  `Requests access for the authenticated user to a group.`,
+  {
+    id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, ...requestData } = args
+      const url = `/api/v4/groups/${id}/access_requests`
+
+      const response = await apiClient.post(url, requestData)
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'put-groups-access-requests-approve',
+  `Approves an access request for the given user.`,
+  {
+    id: z.string(),
+    user_id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, user_id, ...requestData } = args
+      const url = `/api/v4/groups/${id}/access_requests/${user_id}/approve`
+
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'delete-groups-access-requests',
+  `Denies an access request for the given user.`,
+  {
+    id: z.string(),
+    user_id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, user_id, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/access_requests/${user_id}`
+
+      const response = await apiClient.delete(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'get-groups-epics-award-emoji',
+  `List an awardable&#x27;s emoji reactions for groups`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+    page: z.string().optional(),
+    per_page: z.string().optional(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji`
+
+      const response = await apiClient.get(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'post-groups-epics-award-emoji',
+  `Add a new emoji reaction`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, ...requestData } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji`
+
+      const response = await apiClient.post(url, requestData)
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'get-groups-epics-award-emoji',
+  `Get a single emoji reaction`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+    award_id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, award_id, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji/${award_id}`
+
+      const response = await apiClient.get(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'delete-groups-epics-award-emoji',
+  `Delete an emoji reaction`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+    award_id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, award_id, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji/${award_id}`
+
+      const response = await apiClient.delete(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'get-groups-epics-notes-award-emoji',
+  `List an awardable&#x27;s emoji reactions for groups`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+    note_id: z.string(),
+    page: z.string().optional(),
+    per_page: z.string().optional(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, note_id, ...queryParams } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji`
+
+      const response = await apiClient.get(url, {
+        params: queryParams,
+      })
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
+
+mcpServer.tool(
+  'post-groups-epics-notes-award-emoji',
+  `Add a new emoji reaction`,
+  {
+    id: z.string(),
+    epic_iid: z.string(),
+    note_id: z.string(),
+  },
+  async (args) => {
+    try {
+      const { id, epic_iid, note_id, ...requestData } = args
+      const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji`
+
+      const response = await apiClient.post(url, requestData)
+      return handleResult(response.data)
+    } catch (error) {
+      return handleError(error)
+    }
+  }
+)
 
 async function main() {
   const transport = new StdioServerTransport()
