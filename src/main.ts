@@ -15,7 +15,7 @@ const logger = {
 async function main() {
   const transport = new StdioServerTransport()
   await mcpServer.server.connect(transport)
-  logger.log('GitLab API MCP Server started (STDIO)')
+  logger.log(' MCP Server started (STDIO)')
 }
 
 main().catch((error) => {

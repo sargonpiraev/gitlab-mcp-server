@@ -217,7 +217,7 @@ app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    version: 'v4',
+    version: '',
   })
 })
 
@@ -227,7 +227,7 @@ async function main() {
     const host = env.HOST
 
     app.listen(port, host, () => {
-      logger.log(`GitLab API MCP Server (OAuth HTTP) started on http://${host}:${port}`)
+      logger.log(` MCP Server (OAuth HTTP) started on http://${host}:${port}`)
       logger.log(`MCP endpoint: http://${host}:${port}/mcp`)
       logger.log(`OAuth metadata: http://${host}:${port}/.well-known/oauth-protected-resource`)
     })

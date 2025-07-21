@@ -16,7 +16,7 @@ export const mcpServer = new McpServer(
     version: 'v4',
   },
   {
-    instructions: `MCP server for gitlab integration`,
+    instructions: ``,
     capabilities: {
       tools: {},
       logging: {},
@@ -27,7 +27,7 @@ export const mcpServer = new McpServer(
 export const env = envSchema.parse(process.env)
 
 export const apiClient: AxiosInstance = axios.create({
-  baseURL: 'https://api.example.com',
+  baseURL: '',
   headers: {
     'Accept': 'application/json'
   },
