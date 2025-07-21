@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import express from 'express'
-import cors from 'cors'
 import crypto from 'crypto'
 import { z } from 'zod'
 import { mcpServer, envSchema as baseEnvSchema } from './server.js'
@@ -19,30 +18,7 @@ const env = envSchema.parse(process.env)
 const app = express()
 const sessions = new Map<string, any>()
 
-// Security middleware
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow localhost origins for development
-      if (!origin || origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1')) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    },
-  })
-)
-
 app.use(express.json({ limit: '10mb' }))
-
-// Origin header validation middleware
-app.use((req, res, next) => {
-  const origin = req.get('Origin')
-  if (origin && !origin.startsWith('http://localhost') && !origin.startsWith('http://127.0.0.1')) {
-    return res.status(403).json({ error: 'Invalid origin' })
-  }
-  next()
-})
 
 const logger = {
   log: (...message: (string | object)[]) => {

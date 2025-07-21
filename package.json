@@ -9,16 +9,16 @@
     "assistant",
     "gitlab"
   ],
-  "main": "",
-  "types": "",
-  "type": "",
+  "main": "./build/main.js",
+  "types": "./build/main.d.ts",
+  "type": "module",
   "files": [
     "build/",
     "README.md",
     "LICENSE"
   ],
   "bin": {
-    "gitlab-mcp-server": ""
+    "gitlab-mcp-server": "./build/main.js"
   },
   "scripts": {
     "test": "jest --passWithNoTests --coverage",
