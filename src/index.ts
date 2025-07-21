@@ -67,7 +67,7 @@ function handleError(error: unknown): CallToolResult {
   logger.error('Error occurred:', JSON.stringify(error))
   
   if (axios.isAxiosError(error)) {
-    const message = error.response?.data?.description || error.message
+    const message = error.response?.data?.message || error.message
     return { 
       isError: true, 
       content: [{ type: 'text', text: `API Error: ${message}` }] 
@@ -81,7 +81,7 @@ function handleError(error: unknown): CallToolResult {
 }
 
 mcpServer.tool(
-  'get-groups-access-requests',
+  'get-api-v4-groups-id-access-requests',
   `Gets a list of access requests for a group.`,
   {
     id: z.string(),
@@ -104,7 +104,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'post-groups-access-requests',
+  'post-api-v4-groups-id-access-requests',
   `Requests access for the authenticated user to a group.`,
   {
     id: z.string(),
@@ -123,7 +123,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'put-groups-access-requests-approve',
+  'put-api-v4-groups-id-access-requests-user-id-approve',
   `Approves an access request for the given user.`,
   {
     id: z.string(),
@@ -142,7 +142,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'delete-groups-access-requests',
+  'delete-api-v4-groups-id-access-requests-user-id',
   `Denies an access request for the given user.`,
   {
     id: z.string(),
@@ -164,7 +164,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'get-groups-epics-award-emoji',
+  'get-api-v4-groups-id-epics-epic-iid-award-emoji',
   `List an awardable&#x27;s emoji reactions for groups`,
   {
     id: z.string(),
@@ -188,7 +188,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'post-groups-epics-award-emoji',
+  'post-api-v4-groups-id-epics-epic-iid-award-emoji',
   `Add a new emoji reaction`,
   {
     id: z.string(),
@@ -208,7 +208,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'get-groups-epics-award-emoji',
+  'get-api-v4-groups-id-epics-epic-iid-award-emoji-award-id',
   `Get a single emoji reaction`,
   {
     id: z.string(),
@@ -231,7 +231,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'delete-groups-epics-award-emoji',
+  'delete-api-v4-groups-id-epics-epic-iid-award-emoji-award-id',
   `Delete an emoji reaction`,
   {
     id: z.string(),
@@ -254,7 +254,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'get-groups-epics-notes-award-emoji',
+  'get-api-v4-groups-id-epics-epic-iid-notes-note-id-award-emoji',
   `List an awardable&#x27;s emoji reactions for groups`,
   {
     id: z.string(),
@@ -279,7 +279,7 @@ mcpServer.tool(
 )
 
 mcpServer.tool(
-  'post-groups-epics-notes-award-emoji',
+  'post-api-v4-groups-id-epics-epic-iid-notes-note-id-award-emoji',
   `Add a new emoji reaction`,
   {
     id: z.string(),
