@@ -1,6 +1,6 @@
-# Contributing to GitLab
+# Contributing to gitlab-mcp-server
 
-Thank you for your interest in contributing to the GitLab! This guide will help you get started with development.
+Thank you for your interest in contributing to the gitlab-mcp-server! This guide will help you get started with development.
 
 ## 🔧 Development Setup
 
@@ -135,4 +135,4 @@ We use semantic-release for automated versioning and publishing:
 
 ## 📄 License
 
-By contributing to GitLab, you agree that your contributions will be licensed under the MIT License.
+By contributing to gitlab-mcp-server, you agree that your contributions will be licensed under the MIT License. 
