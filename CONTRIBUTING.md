@@ -1,6 +1,6 @@
-# Contributing to gitlab
+# Contributing to GitLab API
 
-Thank you for your interest in contributing to the gitlab! This guide will help you get started with development.
+Thank you for your interest in contributing to the GitLab API! This guide will help you get started with development.
 
 ## 🔧 Development Setup
 
@@ -15,8 +15,8 @@ Thank you for your interest in contributing to the gitlab! This guide will help 
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/sargonpiraev/
-   cd
+   git clone https://github.com/sargonpiraev/gitlab-mcp-server
+   cd gitlab-mcp-server
    ```
 
 2. **Install dependencies**:
@@ -129,7 +129,7 @@ We use semantic-release for automated versioning and publishing:
 
 ## 🆘 Getting Help
 
-- Check existing [issues](https://github.com/sargonpiraev//issues)
+- Check existing [issues](https://github.com/sargonpiraev/gitlab-mcp-server/issues)
 - Create a new issue if you find a bug
 - Join our [Discord](https://discord.gg/ZsWGxRGj) for community support
 

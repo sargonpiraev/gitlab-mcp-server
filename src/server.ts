@@ -79,12 +79,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/access_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -103,12 +109,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/access_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -128,12 +140,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/access_requests/${user_id}/approve`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -153,12 +171,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/access_requests/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -180,12 +204,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -205,12 +235,18 @@ mcpServer.tool(
     id: z.string(),
     epic_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, ...requestData } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -231,12 +267,18 @@ mcpServer.tool(
     epic_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, award_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -257,12 +299,18 @@ mcpServer.tool(
     epic_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, award_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -285,12 +333,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, note_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -311,12 +365,18 @@ mcpServer.tool(
     epic_iid: z.string(),
     note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, note_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -338,12 +398,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -365,12 +431,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, epic_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/epics/${epic_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -392,12 +464,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/badges`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -416,12 +494,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/badges`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -442,12 +526,18 @@ mcpServer.tool(
     link_url: z.string(),
     image_url: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/badges/render`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -467,12 +557,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -492,12 +588,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -517,12 +619,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -541,12 +649,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/custom_attributes`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -566,12 +680,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/groups/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -591,12 +711,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...requestData } = args
       const url = `/api/v4/groups/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -616,12 +742,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/groups/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -656,10 +788,16 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/groups',
         params: args
@@ -677,10 +815,16 @@ mcpServer.tool(
   `Create a group. Available only for users who can create groups.`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/groups',
         data: args
@@ -699,12 +843,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -725,12 +875,18 @@ mcpServer.tool(
     with_custom_attributes: z.string().optional(),
     with_projects: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -749,12 +905,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -773,12 +935,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/archive`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -797,12 +965,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/unarchive`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -821,12 +995,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/restore`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -854,12 +1034,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/groups/shared`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -884,12 +1070,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/invited_groups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -926,12 +1118,18 @@ mcpServer.tool(
     with_custom_attributes: z.string().optional(),
     with_security_reports: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/projects`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -963,12 +1161,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/projects/shared`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1004,12 +1208,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/subgroups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1045,12 +1255,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/descendant_groups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1070,12 +1286,18 @@ mcpServer.tool(
     id: z.string(),
     project_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, project_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/projects/${project_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1097,12 +1319,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/transfer_locations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1121,12 +1349,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/transfer`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1145,12 +1379,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/share`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1170,12 +1410,18 @@ mcpServer.tool(
     id: z.string(),
     group_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, group_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/share/${group_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -1194,12 +1440,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/tokens/revoke`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1218,12 +1470,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/ldap_sync`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1246,12 +1504,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/audit_events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1271,12 +1535,18 @@ mcpServer.tool(
     id: z.string(),
     audit_event_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, audit_event_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/audit_events/${audit_event_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1303,12 +1573,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/saml_users`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1335,12 +1611,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/provisioned_users`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1365,12 +1647,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/users`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1391,12 +1679,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/ssh_certificates`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1415,12 +1709,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/ssh_certificates`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1440,12 +1740,18 @@ mcpServer.tool(
     id: z.string(),
     ssh_certificates_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ssh_certificates_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/ssh_certificates/${ssh_certificates_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -1471,12 +1777,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/runners`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1495,12 +1807,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/runners/reset_registration_token`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1520,12 +1838,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/Release.gpg`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1545,12 +1869,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/Release`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1570,12 +1900,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/InRelease`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1597,12 +1933,18 @@ mcpServer.tool(
     architecture: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/debian-installer/binary-${architecture}/Packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1625,12 +1967,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, file_sha256, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/debian-installer/binary-${architecture}/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1651,12 +1999,18 @@ mcpServer.tool(
     component: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/source/Sources`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1678,12 +2032,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, file_sha256, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/source/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1705,12 +2065,18 @@ mcpServer.tool(
     architecture: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/binary-${architecture}/Packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1733,12 +2099,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, file_sha256, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/dists/*distribution/${component}/binary-${architecture}/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1763,12 +2135,18 @@ mcpServer.tool(
     package_version: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, distribution, project_id, letter, package_name, package_version, file_name, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/debian/pool/${distribution}/${project_id}/${letter}/${package_name}/${package_version}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1787,12 +2165,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/dependency_proxy/cache`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -1814,12 +2198,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     active: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/deploy_tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1838,12 +2228,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/deploy_tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -1863,12 +2259,18 @@ mcpServer.tool(
     id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, token_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/deploy_tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1888,12 +2290,18 @@ mcpServer.tool(
     id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, token_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/deploy_tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -1912,12 +2320,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/avatar`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1938,12 +2352,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/clusters`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1963,12 +2383,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -1988,12 +2414,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2013,12 +2445,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -2037,12 +2475,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/clusters/user`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2063,12 +2507,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/registry/repositories`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2087,12 +2537,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2122,12 +2578,18 @@ mcpServer.tool(
     components: z.string().optional(),
     architectures: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2147,12 +2609,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2172,12 +2640,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...requestData } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2205,12 +2679,18 @@ mcpServer.tool(
     components: z.string().optional(),
     architectures: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -2230,12 +2710,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/debian_distributions/${codename}/key.asc`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2254,12 +2740,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/export/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2278,12 +2770,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/export`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2302,12 +2800,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/export_relations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2329,12 +2833,18 @@ mcpServer.tool(
     batched: z.string().optional(),
     batch_number: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/export_relations/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2354,12 +2864,18 @@ mcpServer.tool(
     id: z.string(),
     relation: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/export_relations/status`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2377,10 +2893,16 @@ mcpServer.tool(
   `Workhorse authorize the group import upload`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/groups/import/authorize',
         data: args
@@ -2398,10 +2920,16 @@ mcpServer.tool(
   `Create a new group import`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/groups/import',
         data: args
@@ -2430,12 +2958,18 @@ mcpServer.tool(
     include_versionless: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2454,12 +2988,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/placeholder_reassignments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2478,12 +3018,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/placeholder_reassignments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2502,12 +3048,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/placeholder_reassignments/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2528,12 +3080,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2552,12 +3110,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -2577,12 +3141,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/groups/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2602,12 +3172,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...requestData } = args
       const url = `/api/v4/groups/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2627,12 +3203,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/groups/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -2651,12 +3233,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/integrations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -2675,12 +3263,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/apple-app-store`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2699,12 +3293,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/asana`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2723,12 +3323,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/assembla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2747,12 +3353,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/bamboo`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2771,12 +3383,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/bugzilla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2795,12 +3413,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/buildkite`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2819,12 +3443,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/campfire`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2843,12 +3473,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/confluence`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2867,12 +3503,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/custom-issue-tracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2891,12 +3533,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/datadog`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2915,12 +3563,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/diffblue-cover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2939,12 +3593,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/discord`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2963,12 +3623,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/drone-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -2987,12 +3653,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/emails-on-push`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3011,12 +3683,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/external-wiki`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3035,12 +3713,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/gitlab-slack-application`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3059,12 +3743,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/google-play`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3083,12 +3773,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/hangouts-chat`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3107,12 +3803,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/harbor`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3131,12 +3833,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/irker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3155,12 +3863,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/jenkins`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3179,12 +3893,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/jira`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3203,12 +3923,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/jira-cloud-app`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3227,12 +3953,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/matrix`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3251,12 +3983,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/mattermost-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3275,12 +4013,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/slack-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3299,12 +4043,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/packagist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3323,12 +4073,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/phorge`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3347,12 +4103,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/pipelines-email`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3371,12 +4133,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/pivotaltracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3395,12 +4163,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/pumble`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3419,12 +4193,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/pushover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3443,12 +4223,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/redmine`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3467,12 +4253,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/ewm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3491,12 +4283,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/youtrack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3515,12 +4313,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/clickup`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3539,12 +4343,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/slack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3563,12 +4373,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/microsoft-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3587,12 +4403,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/mattermost`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3611,12 +4433,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/teamcity`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3635,12 +4463,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/telegram`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3659,12 +4493,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/unify-circuit`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3683,12 +4523,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/webex-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3707,12 +4553,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/zentao`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3731,12 +4583,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/squash-tm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3755,12 +4613,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/github`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3779,12 +4643,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/git-guardian`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3803,12 +4673,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/google-cloud-platform-artifact-registry`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3827,12 +4703,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/google-cloud-platform-workload-identity-federation`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3851,12 +4733,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/mock-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3875,12 +4763,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/integrations/mock-monitoring`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -3900,12 +4794,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/groups/${id}/integrations/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -3925,12 +4825,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/groups/${id}/integrations/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -3949,12 +4855,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/invitations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -3976,12 +4888,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     query: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/invitations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4001,12 +4919,18 @@ mcpServer.tool(
     id: z.string(),
     email: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, email, ...requestData } = args
       const url = `/api/v4/groups/${id}/invitations/${email}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -4026,12 +4950,18 @@ mcpServer.tool(
     id: z.string(),
     email: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, email, ...queryParams } = args
       const url = `/api/v4/groups/${id}/invitations/${email}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4052,12 +4982,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/uploads`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4077,12 +5013,18 @@ mcpServer.tool(
     id: z.string(),
     upload_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, upload_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/uploads/${upload_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4102,12 +5044,18 @@ mcpServer.tool(
     id: z.string(),
     upload_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, upload_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/uploads/${upload_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4128,12 +5076,18 @@ mcpServer.tool(
     secret: z.string(),
     filename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secret, filename, ...queryParams } = args
       const url = `/api/v4/groups/${id}/uploads/${secret}/${filename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4154,12 +5108,18 @@ mcpServer.tool(
     secret: z.string(),
     filename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secret, filename, ...queryParams } = args
       const url = `/api/v4/groups/${id}/uploads/${secret}/${filename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4180,12 +5140,18 @@ mcpServer.tool(
     file_name: z.string(),
     path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/maven/*path/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4211,12 +5177,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4235,12 +5207,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -4265,12 +5243,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members/all`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4290,12 +5274,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4315,12 +5305,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -4342,12 +5338,18 @@ mcpServer.tool(
     skip_subresources: z.string().optional(),
     unassign_issuables: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4367,12 +5369,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members/all/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4392,12 +5400,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members/${user_id}/override`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -4417,12 +5431,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/members/${user_id}/override`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4442,12 +5462,18 @@ mcpServer.tool(
     id: z.string(),
     member_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, member_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members/${member_id}/approve`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -4466,12 +5492,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members/approve_all`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -4492,12 +5524,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/pending_members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4520,12 +5558,18 @@ mcpServer.tool(
     search: z.string().optional(),
     sort: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/billable_members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4545,12 +5589,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/groups/${id}/members/${user_id}/state`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -4572,12 +5622,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/billable_members/${user_id}/memberships`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4599,12 +5655,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/billable_members/${user_id}/indirect`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4624,12 +5686,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/billable_members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4695,12 +5763,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     non_archived: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/merge_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4720,12 +5794,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/-/package/*package_name/dist-tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4745,12 +5825,18 @@ mcpServer.tool(
     id: z.string(),
     tag: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag, ...requestData } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -4771,12 +5857,18 @@ mcpServer.tool(
     tag: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -4795,12 +5887,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/-/npm/v1/security/advisories/bulk`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -4819,12 +5917,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/-/npm/v1/security/audits/quick`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -4844,12 +5948,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/npm/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4868,12 +5978,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/index`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4895,12 +6011,18 @@ mcpServer.tool(
     signature: z.string(),
     same_file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4919,12 +6041,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/v2`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4943,12 +6071,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/v2/$metadata`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4968,12 +6102,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/metadata/*package_name/index`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -4994,12 +6134,18 @@ mcpServer.tool(
     package_name: z.string(),
     package_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/metadata/*package_name/*package_version`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5022,12 +6168,18 @@ mcpServer.tool(
     take: z.string().optional(),
     prerelease: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/nuget/query`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5048,12 +6200,18 @@ mcpServer.tool(
     sha256: z.string(),
     file_identifier: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha256, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/pypi/files/${sha256}/*file_identifier`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5072,12 +6230,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/pypi/simple`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5097,12 +6261,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/-/packages/pypi/simple/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5125,12 +6295,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/releases`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5149,12 +6325,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/access_tokens/self/rotate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5174,12 +6356,18 @@ mcpServer.tool(
     id: z.string(),
     with_content: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/groups/${id}/wikis`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5198,12 +6386,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/wikis`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5225,12 +6419,18 @@ mcpServer.tool(
     version: z.string().optional(),
     render_html: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/groups/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5250,12 +6450,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...requestData } = args
       const url = `/api/v4/groups/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -5275,12 +6481,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/groups/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5299,12 +6511,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/groups/${id}/wikis/attachments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5325,12 +6543,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/access_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5349,12 +6573,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/access_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5374,12 +6604,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/access_requests/${user_id}/approve`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -5399,12 +6635,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/access_requests/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5424,12 +6666,18 @@ mcpServer.tool(
     id: z.string(),
     alert_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, alert_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/alert_management_alerts/${alert_iid}/metric_images/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5449,12 +6697,18 @@ mcpServer.tool(
     id: z.string(),
     alert_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, alert_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/alert_management_alerts/${alert_iid}/metric_images`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5474,12 +6728,18 @@ mcpServer.tool(
     id: z.string(),
     alert_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, alert_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/alert_management_alerts/${alert_iid}/metric_images`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5500,12 +6760,18 @@ mcpServer.tool(
     alert_iid: z.string(),
     metric_image_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, alert_iid, metric_image_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/alert_management_alerts/${alert_iid}/metric_images/${metric_image_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -5526,12 +6792,18 @@ mcpServer.tool(
     alert_iid: z.string(),
     metric_image_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, alert_iid, metric_image_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/alert_management_alerts/${alert_iid}/metric_images/${metric_image_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5553,12 +6825,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5578,12 +6856,18 @@ mcpServer.tool(
     id: z.string(),
     issue_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5604,12 +6888,18 @@ mcpServer.tool(
     issue_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5630,12 +6920,18 @@ mcpServer.tool(
     issue_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5658,12 +6954,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, note_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5684,12 +6986,18 @@ mcpServer.tool(
     issue_iid: z.string(),
     note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, note_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5711,12 +7019,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5738,12 +7052,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5765,12 +7085,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5790,12 +7116,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5816,12 +7148,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5842,12 +7180,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5870,12 +7214,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, note_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5896,12 +7246,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, note_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -5923,12 +7279,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -5950,12 +7312,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -5977,12 +7345,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6002,12 +7376,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6028,12 +7408,18 @@ mcpServer.tool(
     snippet_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6054,12 +7440,18 @@ mcpServer.tool(
     snippet_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6082,12 +7474,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, note_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6108,12 +7506,18 @@ mcpServer.tool(
     snippet_id: z.string(),
     note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, note_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/notes/${note_id}/award_emoji`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6135,12 +7539,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6162,12 +7572,18 @@ mcpServer.tool(
     note_id: z.string(),
     award_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, note_id, award_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/notes/${note_id}/award_emoji/${award_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6189,12 +7605,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/badges`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6213,12 +7635,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/badges`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6239,12 +7667,18 @@ mcpServer.tool(
     link_url: z.string(),
     image_url: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/badges/render`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6264,12 +7698,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6289,12 +7729,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -6314,12 +7760,18 @@ mcpServer.tool(
     id: z.string(),
     badge_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, badge_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/badges/${badge_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6344,12 +7796,18 @@ mcpServer.tool(
     sort: z.string().optional(),
     page_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/branches`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6368,12 +7826,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/branches`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6393,12 +7857,18 @@ mcpServer.tool(
     id: z.string(),
     branch: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, branch, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/branches/${branch}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6418,12 +7888,18 @@ mcpServer.tool(
     id: z.string(),
     branch: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, branch, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/branches/${branch}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6443,12 +7919,18 @@ mcpServer.tool(
     id: z.string(),
     branch: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, branch, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/branches/${branch}/protect`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -6468,12 +7950,18 @@ mcpServer.tool(
     id: z.string(),
     branch: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, branch, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/branches/${branch}/unprotect`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -6492,12 +7980,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/merged_branches`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6516,12 +8010,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/catalog/publish`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6543,12 +8043,18 @@ mcpServer.tool(
     job: z.string(),
     job_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ref_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/artifacts/${ref_name}/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6571,12 +8077,18 @@ mcpServer.tool(
     artifact_path: z.string(),
     job_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ref_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/artifacts/${ref_name}/raw/*artifact_path`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6597,12 +8109,18 @@ mcpServer.tool(
     job_id: z.string(),
     job_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/artifacts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6622,12 +8140,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/artifacts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6649,12 +8173,18 @@ mcpServer.tool(
     artifact_path: z.string(),
     job_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/artifacts/*artifact_path`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6674,12 +8204,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/artifacts/keep`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6698,12 +8234,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/artifacts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -6725,12 +8267,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6750,12 +8298,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6775,12 +8329,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/trace`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6800,12 +8360,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/cancel`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6825,12 +8391,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/retry`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6850,12 +8422,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/erase`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6875,12 +8453,18 @@ mcpServer.tool(
     id: z.string(),
     job_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, job_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/jobs/${job_id}/play`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -6901,12 +8485,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/resource_groups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6926,12 +8516,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/resource_groups/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -6951,12 +8547,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/resource_groups/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -6978,12 +8580,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/resource_groups/${key}/upcoming_jobs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7010,12 +8618,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/runners`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7034,12 +8648,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/runners`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7059,12 +8679,18 @@ mcpServer.tool(
     id: z.string(),
     runner_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, runner_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/runners/${runner_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -7083,12 +8709,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/runners/reset_registration_token`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7109,12 +8741,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/secure_files`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7133,12 +8771,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/secure_files`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7158,12 +8802,18 @@ mcpServer.tool(
     id: z.string(),
     secure_file_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secure_file_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/secure_files/${secure_file_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7183,12 +8833,18 @@ mcpServer.tool(
     id: z.string(),
     secure_file_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secure_file_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/secure_files/${secure_file_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -7208,12 +8864,18 @@ mcpServer.tool(
     id: z.string(),
     secure_file_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secure_file_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/secure_files/${secure_file_id}/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7248,12 +8910,18 @@ mcpServer.tool(
     source: z.string().optional(),
     name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7272,12 +8940,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7297,12 +8971,18 @@ mcpServer.tool(
     id: z.string(),
     ref: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/latest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7322,12 +9002,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7347,12 +9033,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -7376,12 +9068,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/jobs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7404,12 +9102,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/bridges`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7429,12 +9133,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7454,12 +9164,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/test_report`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7479,12 +9195,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/test_report_summary`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7504,12 +9226,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/metadata`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -7529,12 +9257,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/retry`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7554,12 +9288,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipelines/${pipeline_id}/cancel`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7581,12 +9321,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     scope: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7605,12 +9351,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7630,12 +9382,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7655,12 +9413,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -7680,12 +9444,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -7705,12 +9475,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/pipelines`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7730,12 +9506,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/take_ownership`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7755,12 +9537,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/play`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7780,12 +9568,18 @@ mcpServer.tool(
     id: z.string(),
     pipeline_schedule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7806,12 +9600,18 @@ mcpServer.tool(
     pipeline_schedule_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -7832,12 +9632,18 @@ mcpServer.tool(
     pipeline_schedule_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, pipeline_schedule_id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pipeline_schedules/${pipeline_schedule_id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -7857,12 +9663,18 @@ mcpServer.tool(
     id: z.string(),
     ref: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ref, ...requestData } = args
       const url = `/api/v4/projects/${id}/(ref/${ref}/)trigger/pipeline`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7883,12 +9695,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/triggers`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7907,12 +9725,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/triggers`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -7932,12 +9756,18 @@ mcpServer.tool(
     id: z.string(),
     trigger_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, trigger_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/triggers/${trigger_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -7957,12 +9787,18 @@ mcpServer.tool(
     id: z.string(),
     trigger_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, trigger_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/triggers/${trigger_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -7982,12 +9818,18 @@ mcpServer.tool(
     id: z.string(),
     trigger_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, trigger_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/triggers/${trigger_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -8008,12 +9850,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8032,12 +9880,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/variables`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8058,12 +9912,18 @@ mcpServer.tool(
     key: z.string(),
     filter[environment_scope]: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8083,12 +9943,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -8109,12 +9975,18 @@ mcpServer.tool(
     key: z.string(),
     filter[environment_scope]: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -8136,12 +10008,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}/tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8161,12 +10039,18 @@ mcpServer.tool(
     id: z.string(),
     agent_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}/tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8187,12 +10071,18 @@ mcpServer.tool(
     agent_id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, token_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}/tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8213,12 +10103,18 @@ mcpServer.tool(
     agent_id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, token_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}/tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -8239,12 +10135,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8263,12 +10165,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/cluster_agents`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8288,12 +10196,18 @@ mcpServer.tool(
     id: z.string(),
     agent_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8313,12 +10227,18 @@ mcpServer.tool(
     id: z.string(),
     agent_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, agent_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/cluster_agents/${agent_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -8337,12 +10257,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/cargo/config.json`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8373,12 +10299,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8397,12 +10329,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8423,12 +10361,18 @@ mcpServer.tool(
     sha: z.string(),
     stats: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8451,12 +10395,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     unidiff: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/diff`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8478,12 +10428,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/comments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8503,12 +10459,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/comments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8529,12 +10491,18 @@ mcpServer.tool(
     sha: z.string(),
     first_parent: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/sequence`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8554,12 +10522,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/cherry_pick`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8579,12 +10553,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/revert`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8607,12 +10587,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/refs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8635,12 +10621,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/merge_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8660,12 +10652,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/signature`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8694,12 +10692,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/commits/${sha}/statuses`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8719,12 +10723,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...requestData } = args
       const url = `/api/v4/projects/${id}/statuses/${sha}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8743,12 +10753,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/composer`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -8769,12 +10785,18 @@ mcpServer.tool(
     sha: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/composer/archives/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8793,12 +10815,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/users/authenticate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8817,12 +10845,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/users/check_credentials`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8842,12 +10876,18 @@ mcpServer.tool(
     id: z.string(),
     q: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8870,12 +10910,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8894,12 +10940,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/ping`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8923,12 +10975,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8951,12 +11009,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -8979,12 +11043,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -9008,12 +11078,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/digest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9036,12 +11112,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/digest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9065,12 +11147,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/download_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9093,12 +11181,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/download_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9122,12 +11216,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, conan_package_reference, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/upload_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -9150,12 +11250,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/upload_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -9180,12 +11286,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9210,12 +11322,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9240,12 +11358,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9272,12 +11396,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9304,12 +11434,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9336,12 +11472,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9360,12 +11502,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/users/authenticate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9384,12 +11532,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/users/check_credentials`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9409,12 +11563,18 @@ mcpServer.tool(
     id: z.string(),
     q: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9437,12 +11597,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9465,12 +11631,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/latest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9493,12 +11665,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9522,12 +11700,18 @@ mcpServer.tool(
     package_channel: z.string(),
     recipe_revision: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -9551,12 +11735,18 @@ mcpServer.tool(
     package_channel: z.string(),
     recipe_revision: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/files`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9581,12 +11771,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/files/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9611,12 +11807,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/files/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9641,12 +11843,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/files/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9670,12 +11878,18 @@ mcpServer.tool(
     package_channel: z.string(),
     recipe_revision: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9700,12 +11914,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/latest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9730,12 +11950,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9761,12 +11987,18 @@ mcpServer.tool(
     conan_package_reference: z.string(),
     package_revision: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions/${package_revision}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -9792,12 +12024,18 @@ mcpServer.tool(
     conan_package_reference: z.string(),
     package_revision: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions/${package_revision}/files`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9824,12 +12062,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions/${package_revision}/files/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9856,12 +12100,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions/${package_revision}/files/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9888,12 +12138,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/conan/v2/conans/${package_name}/${package_version}/${package_username}/${package_channel}/revisions/${recipe_revision}/packages/${conan_package_reference}/revisions/${package_revision}/files/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -9913,12 +12169,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/Release.gpg`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9938,12 +12200,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/Release`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9963,12 +12231,18 @@ mcpServer.tool(
     id: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/InRelease`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -9990,12 +12264,18 @@ mcpServer.tool(
     architecture: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/debian-installer/binary-${architecture}/Packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10018,12 +12298,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, file_sha256, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/debian-installer/binary-${architecture}/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10044,12 +12330,18 @@ mcpServer.tool(
     component: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/source/Sources`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10071,12 +12363,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, file_sha256, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/source/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10098,12 +12396,18 @@ mcpServer.tool(
     architecture: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/binary-${architecture}/Packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10126,12 +12430,18 @@ mcpServer.tool(
     file_sha256: z.string(),
     distribution: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, component, architecture, file_sha256, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/dists/*distribution/${component}/binary-${architecture}/by-hash/SHA256/${file_sha256}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10155,12 +12465,18 @@ mcpServer.tool(
     package_version: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, distribution, letter, package_name, package_version, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/debian/pool/${distribution}/${letter}/${package_name}/${package_version}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10180,12 +12496,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/debian/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10205,12 +12527,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/debian/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10231,12 +12559,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_keys`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10255,12 +12589,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deploy_keys`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10280,12 +12620,18 @@ mcpServer.tool(
     id: z.string(),
     key_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_keys/${key_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10305,12 +12651,18 @@ mcpServer.tool(
     id: z.string(),
     key_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deploy_keys/${key_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10330,12 +12682,18 @@ mcpServer.tool(
     id: z.string(),
     key_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_keys/${key_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -10355,12 +12713,18 @@ mcpServer.tool(
     id: z.string(),
     key_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deploy_keys/${key_id}/enable`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10382,12 +12746,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     active: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10406,12 +12776,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deploy_tokens`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10431,12 +12807,18 @@ mcpServer.tool(
     id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, token_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10456,12 +12838,18 @@ mcpServer.tool(
     id: z.string(),
     token_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, token_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deploy_tokens/${token_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -10490,12 +12878,18 @@ mcpServer.tool(
     environment: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deployments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10514,12 +12908,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deployments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10539,12 +12939,18 @@ mcpServer.tool(
     id: z.string(),
     deployment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, deployment_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deployments/${deployment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10564,12 +12970,18 @@ mcpServer.tool(
     id: z.string(),
     deployment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, deployment_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deployments/${deployment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10589,12 +13001,18 @@ mcpServer.tool(
     id: z.string(),
     deployment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, deployment_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deployments/${deployment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -10657,12 +13075,18 @@ mcpServer.tool(
     merge_user_id: z.string().optional(),
     merge_user_username: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, deployment_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/deployments/${deployment_id}/merge_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10682,12 +13106,18 @@ mcpServer.tool(
     id: z.string(),
     deployment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, deployment_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/deployments/${deployment_id}/approval`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10707,12 +13137,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10732,12 +13168,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10758,12 +13200,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     draft_note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, draft_note_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes/${draft_note_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10784,12 +13232,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     draft_note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, draft_note_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes/${draft_note_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10810,12 +13264,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     draft_note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, draft_note_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes/${draft_note_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -10836,12 +13296,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     draft_note_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, draft_note_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes/${draft_note_id}/publish`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10861,12 +13327,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/draft_notes/bulk_publish`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10890,12 +13362,18 @@ mcpServer.tool(
     search: z.string().optional(),
     states: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/environments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -10914,12 +13392,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/environments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -10939,12 +13423,18 @@ mcpServer.tool(
     id: z.string(),
     environment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, environment_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/environments/${environment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -10964,12 +13454,18 @@ mcpServer.tool(
     id: z.string(),
     environment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, environment_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/environments/${environment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -10989,12 +13485,18 @@ mcpServer.tool(
     id: z.string(),
     environment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, environment_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/environments/${environment_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11016,12 +13518,18 @@ mcpServer.tool(
     limit: z.string().optional(),
     dry_run: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/environments/review_apps`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11041,12 +13549,18 @@ mcpServer.tool(
     id: z.string(),
     environment_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, environment_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/environments/${environment_id}/stop`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11065,12 +13579,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/environments/stop_stale`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11089,12 +13609,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/error_tracking/client_keys`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11113,12 +13639,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/error_tracking/client_keys`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11138,12 +13670,18 @@ mcpServer.tool(
     id: z.string(),
     key_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/error_tracking/client_keys/${key_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11162,12 +13700,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/error_tracking/settings`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11186,12 +13730,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/error_tracking/settings`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -11210,12 +13760,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/error_tracking/settings`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11237,12 +13793,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11261,12 +13823,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/feature_flags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11286,12 +13854,18 @@ mcpServer.tool(
     id: z.string(),
     feature_flag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, feature_flag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags/${feature_flag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11311,12 +13885,18 @@ mcpServer.tool(
     id: z.string(),
     feature_flag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, feature_flag_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/feature_flags/${feature_flag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11336,12 +13916,18 @@ mcpServer.tool(
     id: z.string(),
     feature_flag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, feature_flag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags/${feature_flag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11363,12 +13949,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags_user_lists`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11387,12 +13979,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/feature_flags_user_lists`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11412,12 +14010,18 @@ mcpServer.tool(
     id: z.string(),
     iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags_user_lists/${iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11437,12 +14041,18 @@ mcpServer.tool(
     id: z.string(),
     iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/feature_flags_user_lists/${iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11462,12 +14072,18 @@ mcpServer.tool(
     id: z.string(),
     iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/feature_flags_user_lists/${iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11490,12 +14106,18 @@ mcpServer.tool(
     range[start]: z.string(),
     range[end]: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}/blame`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11517,12 +14139,18 @@ mcpServer.tool(
     ref: z.string().optional(),
     lfs: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11543,12 +14171,18 @@ mcpServer.tool(
     file_path: z.string(),
     ref: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11568,12 +14202,18 @@ mcpServer.tool(
     id: z.string(),
     file_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11593,12 +14233,18 @@ mcpServer.tool(
     id: z.string(),
     file_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11623,12 +14269,18 @@ mcpServer.tool(
     author_email: z.string().optional(),
     author_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_path, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/files/${file_path}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11649,12 +14301,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/freeze_periods`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11673,12 +14331,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/freeze_periods`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -11698,12 +14362,18 @@ mcpServer.tool(
     id: z.string(),
     freeze_period_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, freeze_period_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/freeze_periods/${freeze_period_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11723,12 +14393,18 @@ mcpServer.tool(
     id: z.string(),
     freeze_period_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, freeze_period_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/freeze_periods/${freeze_period_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11748,12 +14424,18 @@ mcpServer.tool(
     id: z.string(),
     freeze_period_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, freeze_period_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/freeze_periods/${freeze_period_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -11774,12 +14456,18 @@ mcpServer.tool(
     package_name: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/generic/${package_name}/*package_version/(*path/)${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11800,12 +14488,18 @@ mcpServer.tool(
     package_name: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/generic/${package_name}/*package_version/(*path/)${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -11828,12 +14522,18 @@ mcpServer.tool(
     package_version: z.string(),
     path: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/generic/${package_name}/*package_version/(*path/)${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11853,12 +14553,18 @@ mcpServer.tool(
     id: z.string(),
     module_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/go/*module_name/@v/list`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11879,12 +14585,18 @@ mcpServer.tool(
     module_version: z.string(),
     module_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_version, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/go/*module_name/@v/${module_version}.info`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11905,12 +14617,18 @@ mcpServer.tool(
     module_version: z.string(),
     module_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_version, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/go/*module_name/@v/${module_version}.mod`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11931,12 +14649,18 @@ mcpServer.tool(
     module_version: z.string(),
     module_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_version, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/go/*module_name/@v/${module_version}.zip`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11956,12 +14680,18 @@ mcpServer.tool(
     id: z.string(),
     channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, channel, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/helm/${channel}/index.yaml`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -11982,12 +14712,18 @@ mcpServer.tool(
     channel: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, channel, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/helm/${channel}/charts/${file_name}.tgz`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -12007,12 +14743,18 @@ mcpServer.tool(
     id: z.string(),
     channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, channel, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/helm/api/${channel}/charts/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -12032,12 +14774,18 @@ mcpServer.tool(
     id: z.string(),
     channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, channel, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/helm/api/${channel}/charts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -12056,12 +14804,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/services`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -12080,12 +14834,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/apple-app-store`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12104,12 +14864,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/asana`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12128,12 +14894,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/assembla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12152,12 +14924,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/bamboo`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12176,12 +14954,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/bugzilla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12200,12 +14984,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/buildkite`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12224,12 +15014,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/campfire`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12248,12 +15044,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/confluence`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12272,12 +15074,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/custom-issue-tracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12296,12 +15104,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/datadog`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12320,12 +15134,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/diffblue-cover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12344,12 +15164,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/discord`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12368,12 +15194,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/drone-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12392,12 +15224,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/emails-on-push`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12416,12 +15254,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/external-wiki`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12440,12 +15284,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/gitlab-slack-application`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12464,12 +15314,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/google-play`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12488,12 +15344,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/hangouts-chat`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12512,12 +15374,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/harbor`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12536,12 +15404,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/irker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12560,12 +15434,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/jenkins`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12584,12 +15464,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/jira`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12608,12 +15494,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/jira-cloud-app`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12632,12 +15524,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/matrix`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12656,12 +15554,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/mattermost-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12680,12 +15584,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/slack-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12704,12 +15614,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/packagist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12728,12 +15644,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/phorge`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12752,12 +15674,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/pipelines-email`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12776,12 +15704,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/pivotaltracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12800,12 +15734,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/pumble`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12824,12 +15764,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/pushover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12848,12 +15794,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/redmine`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12872,12 +15824,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/ewm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12896,12 +15854,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/youtrack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12920,12 +15884,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/clickup`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12944,12 +15914,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/slack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12968,12 +15944,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/microsoft-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -12992,12 +15974,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/mattermost`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13016,12 +16004,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/teamcity`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13040,12 +16034,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/telegram`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13064,12 +16064,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/unify-circuit`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13088,12 +16094,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/webex-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13112,12 +16124,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/zentao`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13136,12 +16154,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/squash-tm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13160,12 +16184,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/github`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13184,12 +16214,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/git-guardian`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13208,12 +16244,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/google-cloud-platform-artifact-registry`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13232,12 +16274,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/google-cloud-platform-workload-identity-federation`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13256,12 +16304,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/mock-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13280,12 +16334,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/mock-monitoring`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13305,12 +16365,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/services/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -13330,12 +16396,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/services/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -13354,12 +16426,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/mattermost_slash_commands/trigger`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -13378,12 +16456,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/services/slack_slash_commands/trigger`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -13402,12 +16486,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/integrations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -13426,12 +16516,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/apple-app-store`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13450,12 +16546,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/asana`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13474,12 +16576,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/assembla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13498,12 +16606,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/bamboo`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13522,12 +16636,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/bugzilla`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13546,12 +16666,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/buildkite`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13570,12 +16696,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/campfire`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13594,12 +16726,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/confluence`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13618,12 +16756,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/custom-issue-tracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13642,12 +16786,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/datadog`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13666,12 +16816,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/diffblue-cover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13690,12 +16846,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/discord`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13714,12 +16876,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/drone-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13738,12 +16906,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/emails-on-push`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13762,12 +16936,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/external-wiki`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13786,12 +16966,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/gitlab-slack-application`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13810,12 +16996,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/google-play`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13834,12 +17026,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/hangouts-chat`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13858,12 +17056,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/harbor`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13882,12 +17086,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/irker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13906,12 +17116,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/jenkins`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13930,12 +17146,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/jira`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13954,12 +17176,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/jira-cloud-app`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -13978,12 +17206,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/matrix`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14002,12 +17236,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/mattermost-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14026,12 +17266,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/slack-slash-commands`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14050,12 +17296,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/packagist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14074,12 +17326,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/phorge`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14098,12 +17356,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/pipelines-email`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14122,12 +17386,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/pivotaltracker`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14146,12 +17416,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/pumble`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14170,12 +17446,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/pushover`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14194,12 +17476,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/redmine`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14218,12 +17506,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/ewm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14242,12 +17536,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/youtrack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14266,12 +17566,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/clickup`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14290,12 +17596,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/slack`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14314,12 +17626,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/microsoft-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14338,12 +17656,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/mattermost`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14362,12 +17686,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/teamcity`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14386,12 +17716,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/telegram`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14410,12 +17746,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/unify-circuit`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14434,12 +17776,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/webex-teams`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14458,12 +17806,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/zentao`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14482,12 +17836,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/squash-tm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14506,12 +17866,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/github`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14530,12 +17896,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/git-guardian`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14554,12 +17926,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/google-cloud-platform-artifact-registry`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14578,12 +17956,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/google-cloud-platform-workload-identity-federation`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14602,12 +17986,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/mock-ci`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14626,12 +18016,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/mock-monitoring`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14651,12 +18047,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/integrations/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -14676,12 +18078,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/integrations/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -14700,12 +18108,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/mattermost_slash_commands/trigger`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -14724,12 +18138,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/integrations/slack_slash_commands/trigger`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -14748,12 +18168,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/invitations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -14775,12 +18201,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     query: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/invitations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -14800,12 +18232,18 @@ mcpServer.tool(
     id: z.string(),
     email: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, email, ...requestData } = args
       const url = `/api/v4/projects/${id}/invitations/${email}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -14825,12 +18263,18 @@ mcpServer.tool(
     id: z.string(),
     email: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, email, ...queryParams } = args
       const url = `/api/v4/projects/${id}/invitations/${email}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -14850,12 +18294,18 @@ mcpServer.tool(
     id: z.string(),
     issue_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/links`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -14875,12 +18325,18 @@ mcpServer.tool(
     id: z.string(),
     issue_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/links`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -14901,12 +18357,18 @@ mcpServer.tool(
     issue_iid: z.string(),
     issue_link_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, issue_link_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/links/${issue_link_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -14927,12 +18389,18 @@ mcpServer.tool(
     issue_iid: z.string(),
     issue_link_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, issue_iid, issue_link_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${issue_iid}/links/${issue_link_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -14957,12 +18425,18 @@ mcpServer.tool(
     ref: z.string().optional(),
     dry_run_ref: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/ci/lint`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -14981,12 +18455,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/ci/lint`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15005,12 +18485,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/uploads/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15029,12 +18515,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/uploads`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15055,12 +18547,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/uploads`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15080,12 +18578,18 @@ mcpServer.tool(
     id: z.string(),
     upload_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, upload_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/uploads/${upload_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15105,12 +18609,18 @@ mcpServer.tool(
     id: z.string(),
     upload_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, upload_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/uploads/${upload_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -15131,12 +18641,18 @@ mcpServer.tool(
     secret: z.string(),
     filename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secret, filename, ...queryParams } = args
       const url = `/api/v4/projects/${id}/uploads/${secret}/${filename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15157,12 +18673,18 @@ mcpServer.tool(
     secret: z.string(),
     filename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, secret, filename, ...queryParams } = args
       const url = `/api/v4/projects/${id}/uploads/${secret}/${filename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -15183,12 +18705,18 @@ mcpServer.tool(
     file_name: z.string(),
     path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/maven/*path/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15208,12 +18736,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/maven/*path/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -15233,12 +18767,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/maven/*path/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -15264,12 +18804,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15288,12 +18834,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/members`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15318,12 +18870,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/members/all`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15343,12 +18901,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15368,12 +18932,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -15395,12 +18965,18 @@ mcpServer.tool(
     skip_subresources: z.string().optional(),
     unassign_issuables: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/members/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -15420,12 +18996,18 @@ mcpServer.tool(
     id: z.string(),
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, user_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/members/all/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15445,12 +19027,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/approvals`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15470,12 +19058,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/approvals`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15495,12 +19089,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/approve`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15520,12 +19120,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/unapprove`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15545,12 +19151,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/reset_approvals`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -15570,12 +19182,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/approval_state`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15594,12 +19212,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/create_ci_config`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15619,12 +19243,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/time_estimate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15644,12 +19274,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/reset_time_estimate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15669,12 +19305,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/add_spent_time`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15694,12 +19336,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/reset_spent_time`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15719,12 +19367,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/time_stats`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15790,12 +19444,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     iids: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15814,12 +19474,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -15839,12 +19505,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -15867,12 +19539,18 @@ mcpServer.tool(
     include_diverged_commits_count: z.string().optional(),
     include_rebase_in_progress: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15892,12 +19570,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -15917,12 +19601,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/participants`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15942,12 +19632,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/reviewers`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15969,12 +19665,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -15994,12 +19696,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/context_commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16019,12 +19727,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/context_commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -16045,12 +19759,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     commits: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/context_commits`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -16071,12 +19791,18 @@ mcpServer.tool(
     merge_request_iid: z.string(),
     unidiff: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/changes`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16099,12 +19825,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     unidiff: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/diffs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16124,12 +19856,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/raw_diffs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16149,12 +19887,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/pipelines`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16174,12 +19918,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/pipelines`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -16199,12 +19949,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/merge`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16224,12 +19980,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/merge_ref`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16249,12 +20011,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/cancel_merge_when_pipeline_succeeds`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -16274,12 +20042,18 @@ mcpServer.tool(
     id: z.string(),
     merge_request_iid: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...requestData } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/rebase`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16301,12 +20075,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/closes_issues`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16328,12 +20108,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/related_issues`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16355,12 +20141,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/versions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16382,12 +20174,18 @@ mcpServer.tool(
     version_id: z.string(),
     unidiff: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, merge_request_iid, version_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${merge_request_iid}/versions/${version_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16408,12 +20206,18 @@ mcpServer.tool(
     model_version_id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, model_version_id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/ml_models/${model_version_id}/files/(*path/)${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16434,12 +20238,18 @@ mcpServer.tool(
     model_version_id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, model_version_id, file_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/ml_models/${model_version_id}/files/(*path/)${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16462,12 +20272,18 @@ mcpServer.tool(
     path: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, model_version_id, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/ml_models/${model_version_id}/files/(*path/)${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16487,12 +20303,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/npm/-/package/*package_name/dist-tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16512,12 +20334,18 @@ mcpServer.tool(
     id: z.string(),
     tag: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16538,12 +20366,18 @@ mcpServer.tool(
     tag: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -16562,12 +20396,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/npm/-/npm/v1/security/advisories/bulk`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -16586,12 +20426,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/npm/-/npm/v1/security/audits/quick`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -16612,12 +20458,18 @@ mcpServer.tool(
     package_name: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/npm/*package_name/-/*file_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16637,12 +20489,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/npm/${package_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16662,12 +20520,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/npm/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16686,12 +20550,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/index`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16713,12 +20583,18 @@ mcpServer.tool(
     signature: z.string(),
     same_file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16737,12 +20613,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/v2`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16761,12 +20643,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget/v2`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16785,12 +20673,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/v2/$metadata`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16810,12 +20704,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/metadata/*package_name/index`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16836,12 +20736,18 @@ mcpServer.tool(
     package_name: z.string(),
     package_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/metadata/*package_name/*package_version`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16864,12 +20770,18 @@ mcpServer.tool(
     take: z.string().optional(),
     prerelease: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/query`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16889,12 +20801,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/download/*package_name/index`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16916,12 +20834,18 @@ mcpServer.tool(
     package_version: z.string(),
     package_filename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/download/*package_name/*package_version/*package_filename`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -16940,12 +20864,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16964,12 +20894,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -16988,12 +20924,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget/symbolpackage`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17012,12 +20954,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget/symbolpackage/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17038,12 +20986,18 @@ mcpServer.tool(
     package_name: z.string(),
     package_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/nuget/*package_name/*package_version`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17062,12 +21016,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/nuget/v2/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17087,12 +21047,18 @@ mcpServer.tool(
     project_id: z.string(),
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/projects/${project_id}/packages/nuget/v2/FindPackagesById\(\)`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17112,12 +21078,18 @@ mcpServer.tool(
     project_id: z.string(),
     $filter: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/projects/${project_id}/packages/nuget/v2/Packages\(\)`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17138,12 +21110,18 @@ mcpServer.tool(
     package_name: z.string(),
     package_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/projects/${project_id}/packages/nuget/v2/Packages\(Id='*package_name',Version='*package_version'\)`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17167,12 +21145,18 @@ mcpServer.tool(
     order_by: z.string().optional(),
     sort: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/${package_id}/package_files`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17193,12 +21177,18 @@ mcpServer.tool(
     package_id: z.string(),
     package_file_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_id, package_file_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/${package_id}/package_files/${package_file_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17217,12 +21207,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17241,12 +21237,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -17265,12 +21267,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17291,12 +21299,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages/domains`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17315,12 +21329,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/pages/domains`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -17340,12 +21360,18 @@ mcpServer.tool(
     id: z.string(),
     domain: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, domain, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages/domains/${domain}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17365,12 +21391,18 @@ mcpServer.tool(
     id: z.string(),
     domain: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, domain, ...requestData } = args
       const url = `/api/v4/projects/${id}/pages/domains/${domain}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17390,12 +21422,18 @@ mcpServer.tool(
     id: z.string(),
     domain: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, domain, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages/domains/${domain}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17415,12 +21453,18 @@ mcpServer.tool(
     id: z.string(),
     domain: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, domain, ...requestData } = args
       const url = `/api/v4/projects/${id}/pages/domains/${domain}/verify`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17439,12 +21483,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/avatar`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17465,12 +21515,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/clusters`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17490,12 +21546,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17515,12 +21577,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17540,12 +21608,18 @@ mcpServer.tool(
     id: z.string(),
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, cluster_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17564,12 +21638,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/clusters/user`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -17592,12 +21672,18 @@ mcpServer.tool(
     tags: z.string().optional(),
     tags_count: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17617,12 +21703,18 @@ mcpServer.tool(
     id: z.string(),
     repository_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, repository_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories/${repository_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17644,12 +21736,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, repository_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories/${repository_id}/tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17674,12 +21772,18 @@ mcpServer.tool(
     keep_n: z.string().optional(),
     older_than: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, repository_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories/${repository_id}/tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17700,12 +21804,18 @@ mcpServer.tool(
     repository_id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, repository_id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories/${repository_id}/tags/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17726,12 +21836,18 @@ mcpServer.tool(
     repository_id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, repository_id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/repositories/${repository_id}/tags/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17750,12 +21866,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/protection/repository/rules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17774,12 +21896,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/registry/protection/repository/rules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -17799,12 +21927,18 @@ mcpServer.tool(
     id: z.string(),
     protection_rule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, protection_rule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/registry/protection/repository/rules/${protection_rule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -17824,12 +21958,18 @@ mcpServer.tool(
     id: z.string(),
     protection_rule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, protection_rule_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/registry/protection/repository/rules/${protection_rule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17848,12 +21988,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/debian_distributions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -17883,12 +22029,18 @@ mcpServer.tool(
     components: z.string().optional(),
     architectures: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/debian_distributions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17908,12 +22060,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/projects/${id}/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -17933,12 +22091,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...requestData } = args
       const url = `/api/v4/projects/${id}/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -17966,12 +22130,18 @@ mcpServer.tool(
     components: z.string().optional(),
     architectures: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/projects/${id}/debian_distributions/${codename}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -17991,12 +22161,18 @@ mcpServer.tool(
     id: z.string(),
     codename: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, codename, ...queryParams } = args
       const url = `/api/v4/projects/${id}/debian_distributions/${codename}/key.asc`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18022,12 +22198,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18046,12 +22228,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/export`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18070,12 +22258,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/export`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18094,12 +22288,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/export/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18118,12 +22318,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/export_relations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18145,12 +22351,18 @@ mcpServer.tool(
     batched: z.string().optional(),
     batch_number: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/export_relations/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18170,12 +22382,18 @@ mcpServer.tool(
     id: z.string(),
     relation: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/export_relations/status`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18196,12 +22414,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/url_variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -18222,12 +22446,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/url_variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18248,12 +22478,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/custom_headers/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -18274,12 +22510,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/custom_headers/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18300,12 +22542,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18324,12 +22572,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18349,12 +22603,18 @@ mcpServer.tool(
     id: z.string(),
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18374,12 +22634,18 @@ mcpServer.tool(
     id: z.string(),
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -18399,12 +22665,18 @@ mcpServer.tool(
     id: z.string(),
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18427,12 +22699,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18453,12 +22731,18 @@ mcpServer.tool(
     hook_id: z.string(),
     trigger: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, trigger, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/test/${trigger}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18479,12 +22763,18 @@ mcpServer.tool(
     hook_id: z.string(),
     hook_log_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, hook_id, hook_log_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/hooks/${hook_id}/events/${hook_log_id}/resend`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18502,10 +22792,16 @@ mcpServer.tool(
   `Workhorse authorize the project import upload`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/import/authorize',
         data: args
@@ -18523,10 +22819,16 @@ mcpServer.tool(
   `Create a new project import`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/import',
         data: args
@@ -18545,12 +22847,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/import`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18568,10 +22876,16 @@ mcpServer.tool(
   `Create a new project import using a remote object storage path`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/remote-import',
         data: args
@@ -18589,10 +22903,16 @@ mcpServer.tool(
   `Workhorse authorize the project relation import upload`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/import-relation/authorize',
         data: args
@@ -18610,10 +22930,16 @@ mcpServer.tool(
   `Re-import a relation into a project`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/import-relation',
         data: args
@@ -18632,12 +22958,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/relation-imports`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18655,10 +22987,16 @@ mcpServer.tool(
   `Create a new project import using a file from AWS S3`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects/remote-import-s3',
         data: args
@@ -18677,12 +23015,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/job_token_scope`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18701,12 +23045,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/job_token_scope`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -18727,12 +23077,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/job_token_scope/allowlist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18751,12 +23107,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/job_token_scope/allowlist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18777,12 +23139,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/job_token_scope/groups_allowlist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18801,12 +23169,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/job_token_scope/groups_allowlist`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -18826,12 +23200,18 @@ mcpServer.tool(
     id: z.string(),
     target_group_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, target_group_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/job_token_scope/groups_allowlist/${target_group_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18851,12 +23231,18 @@ mcpServer.tool(
     id: z.string(),
     target_project_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, target_project_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/job_token_scope/allowlist/${target_project_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18884,12 +23270,18 @@ mcpServer.tool(
     include_versionless: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18909,12 +23301,18 @@ mcpServer.tool(
     id: z.string(),
     package_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/${package_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18934,12 +23332,18 @@ mcpServer.tool(
     id: z.string(),
     package_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/${package_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -18962,12 +23366,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     cursor: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/${package_id}/pipelines`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -18986,12 +23396,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/protection/rules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19010,12 +23426,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/protection/rules`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19035,12 +23457,18 @@ mcpServer.tool(
     id: z.string(),
     package_protection_rule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_protection_rule_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/protection/rules/${package_protection_rule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -19060,12 +23488,18 @@ mcpServer.tool(
     id: z.string(),
     package_protection_rule_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, package_protection_rule_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/protection/rules/${package_protection_rule_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -19085,12 +23519,18 @@ mcpServer.tool(
     id: z.string(),
     wiki: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snapshot`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19111,12 +23551,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19135,12 +23581,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/snippets`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19160,12 +23612,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19185,12 +23643,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -19210,12 +23674,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -19235,12 +23705,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19262,12 +23738,18 @@ mcpServer.tool(
     ref: z.string(),
     file_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ref, file_path, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/files/${ref}/${file_path}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19287,12 +23769,18 @@ mcpServer.tool(
     id: z.string(),
     snippet_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, snippet_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/snippets/${snippet_id}/user_agent_detail`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19311,12 +23799,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/statistics`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19338,12 +23832,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, type, ...queryParams } = args
       const url = `/api/v4/projects/${id}/templates/${type}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19367,12 +23867,18 @@ mcpServer.tool(
     project: z.string().optional(),
     fullname: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, type, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/templates/${type}/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19391,12 +23897,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/custom_attributes`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19416,12 +23928,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19441,12 +23959,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...requestData } = args
       const url = `/api/v4/projects/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -19466,12 +23990,18 @@ mcpServer.tool(
     id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, key, ...queryParams } = args
       const url = `/api/v4/projects/${id}/custom_attributes/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -19490,12 +24020,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/restore`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19547,10 +24083,16 @@ mcpServer.tool(
     statistics: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/projects',
         params: args
@@ -19568,10 +24110,16 @@ mcpServer.tool(
   `Create new project`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/projects',
         data: args
@@ -19590,12 +24138,18 @@ mcpServer.tool(
   {
     user_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { user_id, ...requestData } = args
       const url = `/api/v4/projects/user/${user_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19615,12 +24169,18 @@ mcpServer.tool(
     id: z.string(),
     search: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/share_locations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19642,12 +24202,18 @@ mcpServer.tool(
     with_custom_attributes: z.string().optional(),
     license: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19666,12 +24232,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -19690,12 +24262,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -19714,12 +24292,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/fork`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19738,12 +24322,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/fork`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -19795,12 +24385,18 @@ mcpServer.tool(
     simple: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/forks`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19819,12 +24415,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/pages_access`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19843,12 +24445,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/archive`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19867,12 +24475,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/unarchive`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19891,12 +24505,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/star`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19915,12 +24535,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/unstar`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -19942,12 +24568,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/starrers`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19966,12 +24598,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/languages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -19991,12 +24629,18 @@ mcpServer.tool(
     id: z.string(),
     forked_from_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, forked_from_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/fork/${forked_from_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20015,12 +24659,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/share`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20040,12 +24690,18 @@ mcpServer.tool(
     id: z.string(),
     group_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, group_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/share/${group_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -20065,12 +24721,18 @@ mcpServer.tool(
     id: z.string(),
     project_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, project_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/import_project_members/${project_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20093,12 +24755,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/users`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20124,12 +24792,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/groups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20154,12 +24828,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/invited_groups`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20178,12 +24858,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/housekeeping`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20202,12 +24888,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository_size`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20226,12 +24918,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/transfer`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -20253,12 +24951,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/transfer_locations`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20277,12 +24981,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/storage`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20305,12 +25015,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/audit_events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20330,12 +25046,18 @@ mcpServer.tool(
     id: z.string(),
     audit_event_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, audit_event_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/audit_events/${audit_event_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20357,12 +25079,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     search: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_branches`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20381,12 +25109,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/protected_branches`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20406,12 +25140,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_branches/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20431,12 +25171,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...requestData } = args
       const url = `/api/v4/projects/${id}/protected_branches/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -20456,12 +25202,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_branches/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -20482,12 +25234,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20506,12 +25264,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/protected_tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20531,12 +25295,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_tags/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20556,12 +25326,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/protected_tags/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -20582,12 +25358,18 @@ mcpServer.tool(
     sha256: z.string(),
     file_identifier: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha256, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/pypi/files/${sha256}/*file_identifier`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20606,12 +25388,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/pypi/simple`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20631,12 +25419,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/pypi/simple/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20655,12 +25449,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/pypi`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20679,12 +25479,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/pypi/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20710,12 +25516,18 @@ mcpServer.tool(
     updated_before: z.string().optional(),
     updated_after: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20734,12 +25546,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/releases`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20760,12 +25578,18 @@ mcpServer.tool(
     tag_name: z.string(),
     include_html_description: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20785,12 +25609,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -20810,12 +25640,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -20836,12 +25672,18 @@ mcpServer.tool(
     tag_name: z.string(),
     direct_asset_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/downloads/*direct_asset_path`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20861,12 +25703,18 @@ mcpServer.tool(
     id: z.string(),
     suffix_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/permalink/latest(/)(*suffix_path)`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20886,12 +25734,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/evidence`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20913,12 +25767,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/assets/links`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20938,12 +25798,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...requestData } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/assets/links`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -20964,12 +25830,18 @@ mcpServer.tool(
     tag_name: z.string(),
     link_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, link_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/assets/links/${link_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -20990,12 +25862,18 @@ mcpServer.tool(
     tag_name: z.string(),
     link_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, link_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/assets/links/${link_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -21016,12 +25894,18 @@ mcpServer.tool(
     tag_name: z.string(),
     link_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, link_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/releases/${tag_name}/assets/links/${link_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -21042,12 +25926,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/remote_mirrors`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21066,12 +25956,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/remote_mirrors`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21091,12 +25987,18 @@ mcpServer.tool(
     id: z.string(),
     mirror_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, mirror_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/remote_mirrors/${mirror_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21116,12 +26018,18 @@ mcpServer.tool(
     id: z.string(),
     mirror_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, mirror_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/remote_mirrors/${mirror_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -21141,12 +26049,18 @@ mcpServer.tool(
     id: z.string(),
     mirror_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, mirror_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/remote_mirrors/${mirror_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -21166,12 +26080,18 @@ mcpServer.tool(
     id: z.string(),
     mirror_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, mirror_id, ...requestData } = args
       const url = `/api/v4/projects/${id}/remote_mirrors/${mirror_id}/sync`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21191,12 +26111,18 @@ mcpServer.tool(
     id: z.string(),
     mirror_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, mirror_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/remote_mirrors/${mirror_id}/public_key`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21222,12 +26148,18 @@ mcpServer.tool(
     pagination: z.string().optional(),
     page_token: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/tree`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21247,12 +26179,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/blobs/${sha}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21272,12 +26210,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/blobs/${sha}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21301,12 +26245,18 @@ mcpServer.tool(
     include_lfs_blobs: z.string().optional(),
     exclude_paths: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/archive`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21330,12 +26280,18 @@ mcpServer.tool(
     straight: z.string().optional(),
     unidiff: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/compare`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21355,12 +26311,18 @@ mcpServer.tool(
     id: z.string(),
     generate: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/health`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21384,12 +26346,18 @@ mcpServer.tool(
     order_by: z.string().optional(),
     sort: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/contributors`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21409,12 +26377,18 @@ mcpServer.tool(
     id: z.string(),
     refs: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/merge_base`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21440,12 +26414,18 @@ mcpServer.tool(
     config_file: z.string().optional(),
     config_file_ref: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/changelog`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21464,12 +26444,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/changelog`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21488,12 +26474,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/access_tokens/self/rotate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21515,12 +26507,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, eventable_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${eventable_id}/resource_milestone_events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21541,12 +26539,18 @@ mcpServer.tool(
     eventable_id: z.string(),
     event_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, eventable_id, event_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/issues/${eventable_id}/resource_milestone_events/${event_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21568,12 +26572,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, eventable_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${eventable_id}/resource_milestone_events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21594,12 +26604,18 @@ mcpServer.tool(
     eventable_id: z.string(),
     event_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, eventable_id, event_id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/merge_requests/${eventable_id}/resource_milestone_events/${event_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21619,12 +26635,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rpm/repodata/*file_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21645,12 +26667,18 @@ mcpServer.tool(
     package_file_id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rpm/*package_file_id/*file_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21669,12 +26697,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/rpm`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21693,12 +26727,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/rpm/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21718,12 +26758,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21743,12 +26789,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/quick/Marshal.4.8/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21768,12 +26820,18 @@ mcpServer.tool(
     id: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, file_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/gems/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21792,12 +26850,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/api/v1/gems/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21816,12 +26880,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/api/v1/gems`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21841,12 +26911,18 @@ mcpServer.tool(
     id: z.string(),
     gems: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/rubygems/api/v1/dependencies`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21866,12 +26942,18 @@ mcpServer.tool(
     id: z.string(),
     submodule: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, submodule, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/submodules/${submodule}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -21896,12 +26978,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21920,12 +27008,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/repository/tags`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -21945,12 +27039,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/tags/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -21970,12 +27070,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/tags/${tag_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -21995,12 +27101,18 @@ mcpServer.tool(
     id: z.string(),
     tag_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, tag_name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/repository/tags/${tag_name}/signature`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22022,12 +27134,18 @@ mcpServer.tool(
     module_system: z.string(),
     terraform-get: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/terraform/modules/${module_name}/${module_system}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22050,12 +27168,18 @@ mcpServer.tool(
     module_version: z.string(),
     terraform-get: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/projects/${id}/packages/terraform/modules/${module_name}/${module_system}/*module_version`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22076,12 +27200,18 @@ mcpServer.tool(
     module_name: z.string(),
     module_system: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_name, module_system, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/terraform/modules/${module_name}/${module_system}/*module_version/file/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22102,12 +27232,18 @@ mcpServer.tool(
     module_name: z.string(),
     module_system: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, module_name, module_system, ...requestData } = args
       const url = `/api/v4/projects/${id}/packages/terraform/modules/${module_name}/${module_system}/*module_version/file`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22128,12 +27264,18 @@ mcpServer.tool(
     name: z.string(),
     ID: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22153,12 +27295,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...requestData } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -22178,12 +27326,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22203,12 +27357,18 @@ mcpServer.tool(
     id: z.string(),
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...requestData } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}/lock`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -22229,12 +27389,18 @@ mcpServer.tool(
     name: z.string(),
     ID: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, ...queryParams } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}/lock`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22255,12 +27421,18 @@ mcpServer.tool(
     name: z.string(),
     serial: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, serial, ...queryParams } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}/versions/${serial}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22281,12 +27453,18 @@ mcpServer.tool(
     name: z.string(),
     serial: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, name, serial, ...queryParams } = args
       const url = `/api/v4/projects/${id}/terraform/state/${name}/versions/${serial}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22306,12 +27484,18 @@ mcpServer.tool(
     id: z.string(),
     with_content: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/projects/${id}/wikis`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22330,12 +27514,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/wikis`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -22357,12 +27547,18 @@ mcpServer.tool(
     version: z.string().optional(),
     render_html: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22382,12 +27578,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...requestData } = args
       const url = `/api/v4/projects/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22407,12 +27609,18 @@ mcpServer.tool(
     id: z.string(),
     slug: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, slug, ...queryParams } = args
       const url = `/api/v4/projects/${id}/wikis/${slug}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22431,12 +27639,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/projects/${id}/wikis/attachments`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -22456,12 +27670,18 @@ mcpServer.tool(
     id: z.string(),
     database: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/admin/batched_background_migrations/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22480,12 +27700,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/admin/batched_background_migrations/${id}/resume`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22504,12 +27730,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/admin/batched_background_migrations/${id}/pause`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22529,10 +27761,16 @@ mcpServer.tool(
     database: z.string().optional(),
     job_class_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/admin/batched_background_migrations',
         params: args
@@ -22552,10 +27790,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/admin/ci/variables',
         params: args
@@ -22573,10 +27817,16 @@ mcpServer.tool(
   `Create a new instance-level variable`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/admin/ci/variables',
         data: args
@@ -22595,12 +27845,18 @@ mcpServer.tool(
   {
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { key, ...queryParams } = args
       const url = `/api/v4/admin/ci/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22619,12 +27875,18 @@ mcpServer.tool(
   {
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { key, ...requestData } = args
       const url = `/api/v4/admin/ci/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22643,12 +27905,18 @@ mcpServer.tool(
   {
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { key, ...queryParams } = args
       const url = `/api/v4/admin/ci/variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22668,12 +27936,18 @@ mcpServer.tool(
     database_name: z.string(),
     table_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { database_name, table_name, ...queryParams } = args
       const url = `/api/v4/admin/databases/${database_name}/dictionary/tables/${table_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22691,10 +27965,16 @@ mcpServer.tool(
   `List instance clusters`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/admin/clusters',
         params: args
@@ -22713,12 +27993,18 @@ mcpServer.tool(
   {
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { cluster_id, ...queryParams } = args
       const url = `/api/v4/admin/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22737,12 +28023,18 @@ mcpServer.tool(
   {
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { cluster_id, ...requestData } = args
       const url = `/api/v4/admin/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22761,12 +28053,18 @@ mcpServer.tool(
   {
     cluster_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { cluster_id, ...queryParams } = args
       const url = `/api/v4/admin/clusters/${cluster_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22784,10 +28082,16 @@ mcpServer.tool(
   `Add existing instance cluster`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/admin/clusters/add',
         data: args
@@ -22806,12 +28110,18 @@ mcpServer.tool(
   {
     timestamp: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { timestamp, ...requestData } = args
       const url = `/api/v4/admin/migrations/${timestamp}/mark`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -22831,10 +28141,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/broadcast_messages',
         params: args
@@ -22852,10 +28168,16 @@ mcpServer.tool(
   `Create a broadcast message`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/broadcast_messages',
         data: args
@@ -22874,12 +28196,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/broadcast_messages/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -22898,12 +28226,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/broadcast_messages/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -22922,12 +28256,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/broadcast_messages/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -22945,10 +28285,16 @@ mcpServer.tool(
   `Create a new application`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/applications',
         data: args
@@ -22966,10 +28312,16 @@ mcpServer.tool(
   `Get applications`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/applications',
         params: args
@@ -22988,12 +28340,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/applications/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -23012,12 +28370,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/applications/${id}/renew-secret`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -23037,10 +28401,16 @@ mcpServer.tool(
     email: z.string(),
     size: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/avatar',
         params: args
@@ -23058,10 +28428,16 @@ mcpServer.tool(
   `Start a new GitLab Migration`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/bulk_imports',
         data: args
@@ -23083,10 +28459,16 @@ mcpServer.tool(
     sort: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/bulk_imports',
         params: args
@@ -23108,10 +28490,16 @@ mcpServer.tool(
     sort: z.string().optional(),
     status: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/bulk_imports/entities',
         params: args
@@ -23130,12 +28518,18 @@ mcpServer.tool(
   {
     import_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { import_id, ...queryParams } = args
       const url = `/api/v4/bulk_imports/${import_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23157,12 +28551,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { import_id, ...queryParams } = args
       const url = `/api/v4/bulk_imports/${import_id}/entities`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23182,12 +28582,18 @@ mcpServer.tool(
     import_id: z.string(),
     entity_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { import_id, entity_id, ...queryParams } = args
       const url = `/api/v4/bulk_imports/${import_id}/entities/${entity_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23207,12 +28613,18 @@ mcpServer.tool(
     import_id: z.string(),
     entity_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { import_id, entity_id, ...queryParams } = args
       const url = `/api/v4/bulk_imports/${import_id}/entities/${entity_id}/failures`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23231,12 +28643,18 @@ mcpServer.tool(
   {
     import_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { import_id, ...requestData } = args
       const url = `/api/v4/bulk_imports/${import_id}/cancel`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -23254,10 +28672,16 @@ mcpServer.tool(
   `Get current job using job token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/job',
         params: args
@@ -23275,10 +28699,16 @@ mcpServer.tool(
   `Get current agents`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/job/allowed_agents',
         params: args
@@ -23296,10 +28726,16 @@ mcpServer.tool(
   `Register a new runner`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/runners',
         data: args
@@ -23318,10 +28754,16 @@ mcpServer.tool(
   {
     token: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: '/api/v4/runners',
         params: args
@@ -23347,10 +28789,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/runners',
         params: args
@@ -23370,10 +28818,16 @@ mcpServer.tool(
     token: z.string(),
     system_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: '/api/v4/runners/managers',
         params: args
@@ -23391,10 +28845,16 @@ mcpServer.tool(
   `Verify authentication for a registered runner`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/runners/verify',
         data: args
@@ -23412,10 +28872,16 @@ mcpServer.tool(
   `Reset runner authentication token with current token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/runners/reset_authentication_token',
         data: args
@@ -23441,10 +28907,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/runners/all',
         params: args
@@ -23463,12 +28935,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/runners/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23487,12 +28965,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/runners/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -23511,12 +28995,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/runners/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -23535,12 +29025,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/runners/${id}/managers`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23566,12 +29062,18 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/runners/${id}/jobs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23590,12 +29092,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/runners/${id}/reset_authentication_token`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -23613,10 +29121,16 @@ mcpServer.tool(
   `Reset instance&#x27;s runner registration token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/runners/reset_registration_token',
         data: args
@@ -23634,10 +29148,16 @@ mcpServer.tool(
   `Request a job`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/jobs/request',
         data: args
@@ -23656,12 +29176,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/jobs/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -23680,12 +29206,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/jobs/${id}/trace`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PATCH',
         url: url,
         data: requestData
@@ -23704,12 +29236,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/jobs/${id}/artifacts/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -23728,12 +29266,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/jobs/${id}/artifacts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -23754,12 +29298,18 @@ mcpServer.tool(
     token: z.string().optional(),
     direct_download: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/jobs/${id}/artifacts`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23778,12 +29328,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/group/${id}/-/packages/composer/packages`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23803,12 +29359,18 @@ mcpServer.tool(
     id: z.string(),
     sha: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, sha, ...queryParams } = args
       const url = `/api/v4/group/${id}/-/packages/composer/p/${sha}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23828,12 +29390,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/group/${id}/-/packages/composer/p2/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23853,12 +29421,18 @@ mcpServer.tool(
     id: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/group/${id}/-/packages/composer/*package_name`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23876,10 +29450,16 @@ mcpServer.tool(
   `Authenticate user against conan CLI`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/conan/v1/users/authenticate',
         params: args
@@ -23897,10 +29477,16 @@ mcpServer.tool(
   `Check for valid user credentials per conan CLI`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/conan/v1/users/check_credentials',
         params: args
@@ -23919,10 +29505,16 @@ mcpServer.tool(
   {
     q: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/conan/v1/conans/search',
         params: args
@@ -23944,12 +29536,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/search`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -23967,10 +29565,16 @@ mcpServer.tool(
   `Ping the Conan API`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/conan/v1/ping',
         params: args
@@ -23993,12 +29597,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24020,12 +29630,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24047,12 +29663,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -24075,12 +29697,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/digest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24102,12 +29730,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/digest`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24130,12 +29764,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, conan_package_reference, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/download_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24157,12 +29797,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/download_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24185,12 +29831,18 @@ mcpServer.tool(
     package_channel: z.string(),
     conan_package_reference: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, conan_package_reference, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/packages/${conan_package_reference}/upload_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -24212,12 +29864,18 @@ mcpServer.tool(
     package_username: z.string(),
     package_channel: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/conans/${package_name}/${package_version}/${package_username}/${package_channel}/upload_urls`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -24241,12 +29899,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24270,12 +29934,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -24299,12 +29969,18 @@ mcpServer.tool(
     recipe_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, file_name, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/export/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -24330,12 +30006,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...queryParams } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24361,12 +30043,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -24392,12 +30080,18 @@ mcpServer.tool(
     package_revision: z.string(),
     file_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { package_name, package_version, package_username, package_channel, recipe_revision, conan_package_reference, package_revision, file_name, ...requestData } = args
       const url = `/api/v4/packages/conan/v1/files/${package_name}/${package_version}/${package_username}/${package_channel}/${recipe_revision}/package/${conan_package_reference}/${package_revision}/${file_name}/authorize`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -24417,12 +30111,18 @@ mcpServer.tool(
     file_name: z.string(),
     path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { file_name, ...queryParams } = args
       const url = `/api/v4/packages/maven/*path/${file_name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24441,10 +30141,16 @@ mcpServer.tool(
   {
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/npm/-/package/*package_name/dist-tags',
         params: args
@@ -24463,12 +30169,18 @@ mcpServer.tool(
   {
     tag: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { tag, ...requestData } = args
       const url = `/api/v4/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -24488,12 +30200,18 @@ mcpServer.tool(
     tag: z.string(),
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { tag, ...queryParams } = args
       const url = `/api/v4/packages/npm/-/package/*package_name/dist-tags/${tag}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -24511,10 +30229,16 @@ mcpServer.tool(
   `NPM registry bulk advisory endpoint`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/packages/npm/-/npm/v1/security/advisories/bulk',
         data: args
@@ -24532,10 +30256,16 @@ mcpServer.tool(
   `NPM registry quick audit endpoint`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/packages/npm/-/npm/v1/security/audits/quick',
         data: args
@@ -24554,10 +30284,16 @@ mcpServer.tool(
   {
     package_name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/packages/npm/*package_name',
         params: args
@@ -24578,12 +30314,18 @@ mcpServer.tool(
     module_name: z.string(),
     module_system: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}/versions`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24604,12 +30346,18 @@ mcpServer.tool(
     module_name: z.string(),
     module_system: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24630,12 +30378,18 @@ mcpServer.tool(
     module_name: z.string(),
     module_system: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24657,12 +30411,18 @@ mcpServer.tool(
     module_system: z.string(),
     module_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}/*module_version/download`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24684,12 +30444,18 @@ mcpServer.tool(
     module_system: z.string(),
     module_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}/*module_version/file`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24711,12 +30477,18 @@ mcpServer.tool(
     module_system: z.string(),
     module_version: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { module_namespace, module_name, module_system, ...queryParams } = args
       const url = `/api/v4/packages/terraform/modules/v1/${module_namespace}/${module_name}/${module_system}/*module_version`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24734,10 +30506,16 @@ mcpServer.tool(
   `Receives notifications from the container registry when an operation occurs`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/container_registry_event/events',
         data: args
@@ -24759,12 +30537,18 @@ mcpServer.tool(
     tags_count: z.string().optional(),
     size: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/registry/repositories/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24790,10 +30574,16 @@ mcpServer.tool(
     after: z.string().optional(),
     sort: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/events',
         params: args
@@ -24819,12 +30609,18 @@ mcpServer.tool(
     after: z.string().optional(),
     sort: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/users/${id}/events`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24877,12 +30673,18 @@ mcpServer.tool(
     statistics: z.string().optional(),
     with_custom_attributes: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { user_id, ...queryParams } = args
       const url = `/api/v4/users/${user_id}/projects`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24906,12 +30708,18 @@ mcpServer.tool(
     per_page: z.string().optional(),
     simple: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { user_id, ...queryParams } = args
       const url = `/api/v4/users/${user_id}/contributed_projects`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24963,12 +30771,18 @@ mcpServer.tool(
     simple: z.string().optional(),
     statistics: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { user_id, ...queryParams } = args
       const url = `/api/v4/users/${user_id}/starred_projects`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -24986,10 +30800,16 @@ mcpServer.tool(
   `List all features`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/features',
         params: args
@@ -25007,10 +30827,16 @@ mcpServer.tool(
   `List all feature definitions`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/features/definitions',
         params: args
@@ -25029,12 +30855,18 @@ mcpServer.tool(
   {
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { name, ...requestData } = args
       const url = `/api/v4/features/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -25053,12 +30885,18 @@ mcpServer.tool(
   {
     name: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { name, ...queryParams } = args
       const url = `/api/v4/features/${name}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -25076,10 +30914,16 @@ mcpServer.tool(
   `Determine if a Geo site should proxy requests`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/geo/proxy',
         params: args
@@ -25099,12 +30943,18 @@ mcpServer.tool(
     replicable_name: z.string(),
     replicable_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { replicable_name, replicable_id, ...queryParams } = args
       const url = `/api/v4/geo/retrieve/${replicable_name}/${replicable_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25123,12 +30973,18 @@ mcpServer.tool(
   {
     gl_repository: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { gl_repository, ...queryParams } = args
       const url = `/api/v4/geo/repositories/${gl_repository}/pipeline_refs`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25146,10 +31002,16 @@ mcpServer.tool(
   `Internal endpoint that posts the current node status`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/geo/status',
         data: args
@@ -25167,10 +31029,16 @@ mcpServer.tool(
   `Internal endpoint that returns info refs upload pack for git clone/pull`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/geo/proxy_git_ssh/info_refs_upload_pack',
         data: args
@@ -25188,10 +31056,16 @@ mcpServer.tool(
   `Internal endpoint that posts git-upload-pack for git clone/pull`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/geo/proxy_git_ssh/upload_pack',
         data: args
@@ -25209,10 +31083,16 @@ mcpServer.tool(
   `Internal endpoint that returns git-received-pack output for git push`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/geo/proxy_git_ssh/info_refs_receive_pack',
         data: args
@@ -25230,10 +31110,16 @@ mcpServer.tool(
   `Internal endpoint that posts git-receive-pack for git push`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/geo/proxy_git_ssh/receive_pack',
         data: args
@@ -25252,12 +31138,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/geo/node_proxy/${id}/graphql`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -25275,10 +31167,16 @@ mcpServer.tool(
   `Receive Slack events`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/integrations/slack/events',
         data: args
@@ -25296,10 +31194,16 @@ mcpServer.tool(
   `POST /api/v4/integrations/slack/interactions`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/integrations/slack/interactions',
         data: args
@@ -25317,10 +31221,16 @@ mcpServer.tool(
   `POST /api/v4/integrations/slack/options`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/integrations/slack/options',
         data: args
@@ -25338,10 +31248,16 @@ mcpServer.tool(
   `Subscribe a namespace to a JiraConnectInstallation`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/integrations/jira_connect/subscriptions',
         data: args
@@ -25360,12 +31276,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/keys/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25384,10 +31306,16 @@ mcpServer.tool(
   {
     fingerprint: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/keys',
         params: args
@@ -25405,10 +31333,16 @@ mcpServer.tool(
   `Render an arbitrary Markdown document`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/markdown',
         data: args
@@ -25472,10 +31406,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/merge_requests',
         params: args
@@ -25494,12 +31434,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/namespaces/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -25518,12 +31464,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/namespaces/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25542,12 +31494,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/namespaces/${id}/gitlab_subscription`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25566,12 +31524,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/namespaces/${id}/storage/limit_exclusion`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -25590,12 +31554,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/namespaces/${id}/storage/limit_exclusion`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -25615,10 +31585,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/namespaces/storage/limit_exclusions',
         params: args
@@ -25643,10 +31619,16 @@ mcpServer.tool(
     per_page: z.string().optional(),
     requested_hosted_plan: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/namespaces',
         params: args
@@ -25666,12 +31648,18 @@ mcpServer.tool(
     id: z.string(),
     parent_id: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/namespaces/${id}/exists`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25689,10 +31677,16 @@ mcpServer.tool(
   `Create an organization`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/organizations',
         data: args
@@ -25712,10 +31706,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/pages/domains',
         params: args
@@ -25733,10 +31733,16 @@ mcpServer.tool(
   `Get single personal access token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/personal_access_tokens/self',
         params: args
@@ -25754,10 +31760,16 @@ mcpServer.tool(
   `Revoke a personal access token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: '/api/v4/personal_access_tokens/self',
         params: args
@@ -25778,10 +31790,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/personal_access_tokens/self/associations',
         params: args
@@ -25799,10 +31817,16 @@ mcpServer.tool(
   `Rotate a personal access token`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/personal_access_tokens/self/rotate',
         data: args
@@ -25833,10 +31857,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/personal_access_tokens',
         params: args
@@ -25855,12 +31885,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/personal_access_tokens/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -25879,12 +31915,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/personal_access_tokens/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -25903,12 +31945,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/personal_access_tokens/${id}/rotate`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -25930,10 +31978,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/snippets',
         params: args
@@ -25951,10 +32005,16 @@ mcpServer.tool(
   `Create new snippet`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/snippets',
         data: args
@@ -25976,10 +32036,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/snippets/public',
         params: args
@@ -26002,10 +32068,16 @@ mcpServer.tool(
     per_page: z.string().optional(),
     repository_storage: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/snippets/all',
         params: args
@@ -26024,12 +32096,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/snippets/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26048,12 +32126,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/snippets/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -26072,12 +32156,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/snippets/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -26096,12 +32186,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/snippets/${id}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26122,12 +32218,18 @@ mcpServer.tool(
     ref: z.string(),
     file_path: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ref, file_path, ...queryParams } = args
       const url = `/api/v4/snippets/${id}/files/${ref}/${file_path}/raw`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26146,12 +32248,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/snippets/${id}/user_agent_detail`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26170,12 +32278,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/suggestions/${id}/apply`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -26193,10 +32307,16 @@ mcpServer.tool(
   `Apply multiple suggestion patches in the Merge Request where they were created`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: '/api/v4/suggestions/batch_apply',
         data: args
@@ -26216,12 +32336,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, key, ...requestData } = args
       const url = `/api/v4/hooks/${hook_id}/url_variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -26241,12 +32367,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, key, ...queryParams } = args
       const url = `/api/v4/hooks/${hook_id}/url_variables/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -26266,12 +32398,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, key, ...requestData } = args
       const url = `/api/v4/hooks/${hook_id}/custom_headers/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -26291,12 +32429,18 @@ mcpServer.tool(
     hook_id: z.string(),
     key: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, key, ...queryParams } = args
       const url = `/api/v4/hooks/${hook_id}/custom_headers/${key}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -26316,10 +32460,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/hooks',
         params: args
@@ -26337,10 +32487,16 @@ mcpServer.tool(
   `Add new system hook`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/hooks',
         data: args
@@ -26359,12 +32515,18 @@ mcpServer.tool(
   {
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, ...queryParams } = args
       const url = `/api/v4/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26383,12 +32545,18 @@ mcpServer.tool(
   {
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, ...requestData } = args
       const url = `/api/v4/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -26407,12 +32575,18 @@ mcpServer.tool(
   {
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, ...requestData } = args
       const url = `/api/v4/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -26431,12 +32605,18 @@ mcpServer.tool(
   {
     hook_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { hook_id, ...queryParams } = args
       const url = `/api/v4/hooks/${hook_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -26457,12 +32637,18 @@ mcpServer.tool(
     instance_id: z.string().optional(),
     app_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/feature_flags/unleash/${project_id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26483,12 +32669,18 @@ mcpServer.tool(
     instance_id: z.string().optional(),
     app_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/feature_flags/unleash/${project_id}/features`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26509,12 +32701,18 @@ mcpServer.tool(
     instance_id: z.string().optional(),
     app_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...queryParams } = args
       const url = `/api/v4/feature_flags/unleash/${project_id}/client/features`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -26533,12 +32731,18 @@ mcpServer.tool(
   {
     project_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...requestData } = args
       const url = `/api/v4/feature_flags/unleash/${project_id}/client/register`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -26557,12 +32761,18 @@ mcpServer.tool(
   {
     project_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { project_id, ...requestData } = args
       const url = `/api/v4/feature_flags/unleash/${project_id}/client/metrics`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: url,
         data: requestData
@@ -26580,10 +32790,16 @@ mcpServer.tool(
   `Track usage data event`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/usage_data/increment_counter',
         data: args
@@ -26601,10 +32817,16 @@ mcpServer.tool(
   `Track usage data event for the current user`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/usage_data/increment_unique_users',
         data: args
@@ -26622,10 +32844,16 @@ mcpServer.tool(
   `Track multiple gitlab internal events`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/usage_data/track_events',
         data: args
@@ -26644,10 +32872,16 @@ mcpServer.tool(
   {
     include_paths: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/usage_data/metric_definitions',
         params: args
@@ -26665,10 +32899,16 @@ mcpServer.tool(
   `Get the latest ServicePing payload`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/usage_data/service_ping',
         params: args
@@ -26686,10 +32926,16 @@ mcpServer.tool(
   `Track gitlab internal events`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/usage_data/track_event',
         data: args
@@ -26707,10 +32953,16 @@ mcpServer.tool(
   `Get Non SQL usage ping metrics`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/usage_data/non_sql_metrics',
         params: args
@@ -26728,10 +32980,16 @@ mcpServer.tool(
   `Get raw SQL queries for usage data SQL metrics`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/usage_data/queries',
         params: args
@@ -26749,10 +33007,16 @@ mcpServer.tool(
   `Return the user specific counts`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/user_counts',
         params: args
@@ -26770,10 +33034,16 @@ mcpServer.tool(
   `Create a runner owned by currently authenticated user`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/user/runners',
         data: args
@@ -26792,10 +33062,16 @@ mcpServer.tool(
   {
     plan_name: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/application/plan_limits',
         params: args
@@ -26813,10 +33089,16 @@ mcpServer.tool(
   `Change plan limits`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: '/api/v4/application/plan_limits',
         data: args
@@ -26834,10 +33116,16 @@ mcpServer.tool(
   `Get the current appearance`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/application/appearance',
         params: args
@@ -26855,10 +33143,16 @@ mcpServer.tool(
   `Modify appearance`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: '/api/v4/application/appearance',
         data: args
@@ -26876,10 +33170,16 @@ mcpServer.tool(
   `Get the current application statistics`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/application/statistics',
         params: args
@@ -26898,10 +33198,16 @@ mcpServer.tool(
   {
     group_id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/discover-cert-based-clusters',
         params: args
@@ -26922,10 +33228,16 @@ mcpServer.tool(
     per_page: z.string().optional(),
     public: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/deploy_keys',
         params: args
@@ -26943,10 +33255,16 @@ mcpServer.tool(
   `Create a deploy key`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/deploy_keys',
         data: args
@@ -26967,10 +33285,16 @@ mcpServer.tool(
     per_page: z.string().optional(),
     active: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/deploy_tokens',
         params: args
@@ -26988,10 +33312,16 @@ mcpServer.tool(
   `Import a BitBucket Cloud repository`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/import/bitbucket',
         data: args
@@ -27009,10 +33339,16 @@ mcpServer.tool(
   `Import a BitBucket Server repository`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/import/bitbucket_server',
         data: args
@@ -27030,10 +33366,16 @@ mcpServer.tool(
   `Import a GitHub project`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/import/github',
         data: args
@@ -27051,10 +33393,16 @@ mcpServer.tool(
   `Cancel GitHub project import`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/import/github/cancel',
         data: args
@@ -27072,10 +33420,16 @@ mcpServer.tool(
   `Import User Gists`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/import/github/gists',
         data: args
@@ -27093,10 +33447,16 @@ mcpServer.tool(
   `Trigger a global slack command`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/slack/trigger',
         data: args
@@ -27114,10 +33474,16 @@ mcpServer.tool(
   `Retrieve metadata information for this GitLab instance`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/metadata',
         params: args
@@ -27135,10 +33501,16 @@ mcpServer.tool(
   `Retrieves version information for the GitLab instance`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/version',
         params: args
@@ -27161,10 +33533,16 @@ mcpServer.tool(
     page: z.string().optional(),
     per_page: z.string().optional(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/topics',
         params: args
@@ -27182,10 +33560,16 @@ mcpServer.tool(
   `Create a topic`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/topics',
         data: args
@@ -27204,12 +33588,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/topics/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: url,
         params: queryParams
@@ -27228,12 +33618,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...requestData } = args
       const url = `/api/v4/topics/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'PUT',
         url: url,
         data: requestData
@@ -27252,12 +33648,18 @@ mcpServer.tool(
   {
     id: z.string(),
   },
-  async (args) => {
+  async (args, extra) => {
     try {
       const { id, ...queryParams } = args
       const url = `/api/v4/topics/${id}`
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'DELETE',
         url: url,
         params: queryParams
@@ -27275,10 +33677,16 @@ mcpServer.tool(
   `Merge topics`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'POST',
         url: '/api/v4/topics/merge',
         data: args
@@ -27296,10 +33704,16 @@ mcpServer.tool(
   `Get the public key for web commits`,
   {
   },
-  async (args) => {
+  async (args, extra) => {
     try {
+
+      // Extract authorization token from HTTP request headers
+      const authorization = extra?.requestInfo?.headers?.authorization as string
+      const bearer = authorization?.replace('Bearer ', '')
+  
       
       const response = await apiClient.request({
+        headers: bearer ? { Authorization: `Bearer ${bearer}` } : undefined,
         method: 'GET',
         url: '/api/v4/web_commits/public_key',
         params: args
