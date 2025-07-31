@@ -62,7 +62,7 @@ Add to your Cursor `~/.cursor/mcp.json` file:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-gitlab_api_key"
+        "GITLAB_API_TOKEN": "your-gitlab_api_token"
       }
     }
   }
@@ -86,7 +86,7 @@ Or add manually to your VS Code settings:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-gitlab_api_key"
+        "GITLAB_API_TOKEN": "your-gitlab_api_token"
       }
     }
   }
@@ -107,7 +107,7 @@ Add to your `claude_desktop_config.json`:
       "command": "npx",
       "args": ["-y", "@sargonpiraev/gitlab-mcp-server"],
       "env": {
-        "GITLAB_API_KEY": "your-gitlab_api_key"
+        "GITLAB_API_TOKEN": "your-gitlab_api_token"
       }
     }
   }
@@ -171,15 +171,15 @@ Add to your `claude_desktop_config.json`:
 - **`delete-api-v4-groups-id-ssh-certificates-ssh-certificates-id`**: Removes an ssh certificate from a group.
 - **`get-api-v4-groups-id-runners`**: List group&#x27;s runners
 - **`post-api-v4-groups-id-runners-reset-registration-token`**: Reset the runner registration token for a group
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-release-gpg`**: The Release file signature
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-release`**: The unsigned Release file
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-inrelease`**: The signed Release file
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-debian-installer-binary-architecture-packages`**: The installer (udeb) binary files index
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-debian-installer-binary-architecture-by-hash-sha256-file-sha256`**: The installer (udeb) binary files index by hash
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-source-sources`**: The source files index
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-source-by-hash-sha256-file-sha256`**: The source files index by hash
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-binary-architecture-packages`**: The binary files index
-- **`get-api-v4-groups-id-packages-debian-dists*distribution-component-binary-architecture-by-hash-sha256-file-sha256`**: The binary files index by hash
+- **`get-api-v4-groups-id-packages-debian-dists`**: The Release file signature
+- **`get-api-v4-groups-id-packages-debian-dists`**: The unsigned Release file
+- **`get-api-v4-groups-id-packages-debian-dists`**: The signed Release file
+- **`get-api-v4-groups-id-packages-debian-dists`**: The installer (udeb) binary files index
+- **`get-api-v4-groups-id-packages-debian-dists`**: The installer (udeb) binary files index by hash
+- **`get-api-v4-groups-id-packages-debian-dists`**: The source files index
+- **`get-api-v4-groups-id-packages-debian-dists`**: The source files index by hash
+- **`get-api-v4-groups-id-packages-debian-dists`**: The binary files index
+- **`get-api-v4-groups-id-packages-debian-dists`**: The binary files index by hash
 - **`get-api-v4-groups-id-packages-debian-pool-distribution-project-id-letter-package-name-package-version-file-name`**: Download Debian package
 - **`delete-api-v4-groups-id-dependency-proxy-cache`**: Purge the dependency proxy for a group
 - **`get-api-v4-groups-id-deploy-tokens`**: List group deploy tokens
@@ -278,7 +278,7 @@ Add to your `claude_desktop_config.json`:
 - **`delete-api-v4-groups-id-uploads-upload-id`**: Delete a single group upload
 - **`get-api-v4-groups-id-uploads-secret-filename`**: Download a single project upload by secret and filename
 - **`delete-api-v4-groups-id-uploads-secret-filename`**: Delete a single group upload by secret and filename
-- **`get-api-v4-groups-id-packages-maven*path-file-name`**: Download the maven package file at a group level
+- **`get-api-v4-groups-id-packages-maven`**: Download the maven package file at a group level
 - **`get-api-v4-groups-id-members`**: Gets a list of group or project members viewable by the authenticated user.
 - **`post-api-v4-groups-id-members`**: Adds a member to a group or project.
 - **`get-api-v4-groups-id-members-all`**: Gets a list of group or project members viewable by the authenticated user, including those who gained membership through ancestor group.
@@ -297,22 +297,22 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-groups-id-billable-members-user-id-indirect`**: Get the indirect memberships of a billable user of a top-level group.
 - **`delete-api-v4-groups-id-billable-members-user-id`**: Removes a billable member from a group or project.
 - **`get-api-v4-groups-id-merge-requests`**: List group merge requests
-- **`get-api-v4-groups-id-packages-npm-package*package-name-dist-tags`**: Get all tags for a given an NPM package
-- **`put-api-v4-groups-id-packages-npm-package*package-name-dist-tags-tag`**: Create or Update the given tag for the given NPM package and version
-- **`delete-api-v4-groups-id-packages-npm-package*package-name-dist-tags-tag`**: Deletes the given tag
+- **`get-api-v4-groups-id-packages-npm-package`**: Get all tags for a given an NPM package
+- **`put-api-v4-groups-id-packages-npm-package`**: Create or Update the given tag for the given NPM package and version
+- **`delete-api-v4-groups-id-packages-npm-package`**: Deletes the given tag
 - **`post-api-v4-groups-id-packages-npm-npm-v1-security-advisories-bulk`**: NPM registry bulk advisory endpoint
 - **`post-api-v4-groups-id-packages-npm-npm-v1-security-audits-quick`**: NPM registry quick audit endpoint
-- **`get-api-v4-groups-id-packages-npm*package-name`**: NPM registry metadata endpoint
+- **`get-api-v4-groups-id-packages-npm`**: NPM registry metadata endpoint
 - **`get-api-v4-groups-id-packages-nuget-index`**: The NuGet V3 Feed Service Index
-- **`get-api-v4-groups-id-packages-nuget-symbolfiles*file-name*signature*same-file-name`**: The NuGet Symbol File Download Endpoint
+- **`get-api-v4-groups-id-packages-nuget-symbolfilessignature`**: The NuGet Symbol File Download Endpoint
 - **`get-api-v4-groups-id-packages-nuget-v2`**: The NuGet V2 Feed Service Index
 - **`get-api-v4-groups-id-packages-nuget-v2$metadata`**: The NuGet V2 Feed Package $metadata endpoint
-- **`get-api-v4-groups-id-packages-nuget-metadata*package-name-index`**: The NuGet Metadata Service - Package name level
-- **`get-api-v4-groups-id-packages-nuget-metadata*package-name*package-version`**: The NuGet Metadata Service - Package name and version level
+- **`get-api-v4-groups-id-packages-nuget-metadata`**: The NuGet Metadata Service - Package name level
+- **`get-api-v4-groups-id-packages-nuget-metadatapackage-version`**: The NuGet Metadata Service - Package name and version level
 - **`get-api-v4-groups-id-packages-nuget-query`**: The NuGet Search Service
-- **`get-api-v4-groups-id-packages-pypi-files-sha256*file-identifier`**: Download a package file from a group
+- **`get-api-v4-groups-id-packages-pypi-files-sha256`**: Download a package file from a group
 - **`get-api-v4-groups-id-packages-pypi-simple`**: The PyPi Simple Group Index Endpoint
-- **`get-api-v4-groups-id-packages-pypi-simple*package-name`**: The PyPi Simple Group Package Endpoint
+- **`get-api-v4-groups-id-packages-pypi-simple`**: The PyPi Simple Group Package Endpoint
 - **`get-api-v4-groups-id-releases`**: List group releases
 - **`post-api-v4-groups-id-access-tokens-self-rotate`**: Rotate a resource access token
 - **`get-api-v4-groups-id-wikis`**: Get a list of wiki pages
@@ -369,10 +369,10 @@ Add to your `claude_desktop_config.json`:
 - **`delete-api-v4-projects-id-repository-merged-branches`**: Delete all merged branches
 - **`post-api-v4-projects-id-catalog-publish`**: Publish a new component project release as version to the CI/CD catalog
 - **`get-api-v4-projects-id-jobs-artifacts-ref-name-download`**: Download the artifacts archive from a job
-- **`get-api-v4-projects-id-jobs-artifacts-ref-name-raw*artifact-path`**: Download a specific file from artifacts archive from a ref
+- **`get-api-v4-projects-id-jobs-artifacts-ref-name-raw`**: Download a specific file from artifacts archive from a ref
 - **`get-api-v4-projects-id-jobs-job-id-artifacts`**: Download the artifacts archive from a job
 - **`delete-api-v4-projects-id-jobs-job-id-artifacts`**: Delete the artifacts files from a job
-- **`get-api-v4-projects-id-jobs-job-id-artifacts*artifact-path`**: Download a specific file from artifacts archive
+- **`get-api-v4-projects-id-jobs-job-id-artifacts`**: Download a specific file from artifacts archive
 - **`post-api-v4-projects-id-jobs-job-id-artifacts-keep`**: Keep the artifacts to prevent them from being deleted
 - **`delete-api-v4-projects-id-artifacts`**: Expire the artifacts files from a project
 - **`get-api-v4-projects-id-jobs`**: Get a projects jobs
@@ -419,7 +419,7 @@ Add to your `claude_desktop_config.json`:
 - **`post-api-v4-projects-id-pipeline-schedules-pipeline-schedule-id-variables`**: Create a new pipeline schedule variable
 - **`put-api-v4-projects-id-pipeline-schedules-pipeline-schedule-id-variables-key`**: Edit a pipeline schedule variable
 - **`delete-api-v4-projects-id-pipeline-schedules-pipeline-schedule-id-variables-key`**: Delete a pipeline schedule variable
-- **`post-api-v4-projects-id(ref-ref)trigger-pipeline`**: Trigger a GitLab project pipeline
+- **`post-api-v4-projects-idtrigger-pipeline`**: Trigger a GitLab project pipeline
 - **`get-api-v4-projects-id-triggers`**: Get trigger tokens list
 - **`post-api-v4-projects-id-triggers`**: Create a trigger token
 - **`get-api-v4-projects-id-triggers-trigger-id`**: Get specific trigger token of a project
@@ -454,7 +454,7 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-repository-commits-sha-statuses`**: Get a commit&#x27;s statuses
 - **`post-api-v4-projects-id-statuses-sha`**: Post status to a commit
 - **`post-api-v4-projects-id-packages-composer`**: Composer packages endpoint for registering packages
-- **`get-api-v4-projects-id-packages-composer-archives*package-name`**: Composer package endpoint to download a package archive
+- **`get-api-v4-projects-id-packages-composer-archives`**: Composer package endpoint to download a package archive
 - **`get-api-v4-projects-id-packages-conan-v1-users-authenticate`**: Authenticate user against conan CLI
 - **`get-api-v4-projects-id-packages-conan-v1-users-check-credentials`**: Check for valid user credentials per conan CLI
 - **`get-api-v4-projects-id-packages-conan-v1-conans-search`**: Search for packages
@@ -494,15 +494,15 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-packages-conan-v2-conans-package-name-package-version-package-username-package-channel-revisions-recipe-revision-packages-conan-package-reference-revisions-package-revision-files-file-name`**: Download package files
 - **`put-api-v4-projects-id-packages-conan-v2-conans-package-name-package-version-package-username-package-channel-revisions-recipe-revision-packages-conan-package-reference-revisions-package-revision-files-file-name`**: Upload package files
 - **`put-api-v4-projects-id-packages-conan-v2-conans-package-name-package-version-package-username-package-channel-revisions-recipe-revision-packages-conan-package-reference-revisions-package-revision-files-file-name-authorize`**: Workhorse authorize the conan package file
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-release-gpg`**: The Release file signature
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-release`**: The unsigned Release file
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-inrelease`**: The signed Release file
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-debian-installer-binary-architecture-packages`**: The installer (udeb) binary files index
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-debian-installer-binary-architecture-by-hash-sha256-file-sha256`**: The installer (udeb) binary files index by hash
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-source-sources`**: The source files index
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-source-by-hash-sha256-file-sha256`**: The source files index by hash
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-binary-architecture-packages`**: The binary files index
-- **`get-api-v4-projects-id-packages-debian-dists*distribution-component-binary-architecture-by-hash-sha256-file-sha256`**: The binary files index by hash
+- **`get-api-v4-projects-id-packages-debian-dists`**: The Release file signature
+- **`get-api-v4-projects-id-packages-debian-dists`**: The unsigned Release file
+- **`get-api-v4-projects-id-packages-debian-dists`**: The signed Release file
+- **`get-api-v4-projects-id-packages-debian-dists`**: The installer (udeb) binary files index
+- **`get-api-v4-projects-id-packages-debian-dists`**: The installer (udeb) binary files index by hash
+- **`get-api-v4-projects-id-packages-debian-dists`**: The source files index
+- **`get-api-v4-projects-id-packages-debian-dists`**: The source files index by hash
+- **`get-api-v4-projects-id-packages-debian-dists`**: The binary files index
+- **`get-api-v4-projects-id-packages-debian-dists`**: The binary files index by hash
 - **`get-api-v4-projects-id-packages-debian-pool-distribution-letter-package-name-package-version-file-name`**: Download Debian package
 - **`put-api-v4-projects-id-packages-debian-file-name`**: Upload Debian package
 - **`put-api-v4-projects-id-packages-debian-file-name-authorize`**: Authorize Debian package upload
@@ -565,13 +565,13 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-freeze-periods-freeze-period-id`**: Get a freeze period
 - **`put-api-v4-projects-id-freeze-periods-freeze-period-id`**: Update a freeze period
 - **`delete-api-v4-projects-id-freeze-periods-freeze-period-id`**: Delete a freeze period
-- **`put-api-v4-projects-id-packages-generic-package-name*package-version(*path)file-name-authorize`**: Workhorse authorize generic package file
-- **`put-api-v4-projects-id-packages-generic-package-name*package-version(*path)file-name`**: Upload package file
-- **`get-api-v4-projects-id-packages-generic-package-name*package-version(*path)file-name`**: Download package file
-- **`get-api-v4-projects-id-packages-go*module-name@v-list`**: List
-- **`get-api-v4-projects-id-packages-go*module-name@v-module-version-info`**: Version metadata
-- **`get-api-v4-projects-id-packages-go*module-name@v-module-version-mod`**: Download module file
-- **`get-api-v4-projects-id-packages-go*module-name@v-module-version-zip`**: Download module source
+- **`put-api-v4-projects-id-packages-generic-package-namepath)file-name-authorize`**: Workhorse authorize generic package file
+- **`put-api-v4-projects-id-packages-generic-package-namepath)file-name`**: Upload package file
+- **`get-api-v4-projects-id-packages-generic-package-namepath)file-name`**: Download package file
+- **`get-api-v4-projects-id-packages-go`**: List
+- **`get-api-v4-projects-id-packages-go`**: Version metadata
+- **`get-api-v4-projects-id-packages-go`**: Download module file
+- **`get-api-v4-projects-id-packages-go`**: Download module source
 - **`get-api-v4-projects-id-packages-helm-channel-index-yaml`**: Download a chart index
 - **`get-api-v4-projects-id-packages-helm-channel-charts-file-name-tgz`**: Download a chart
 - **`post-api-v4-projects-id-packages-helm-api-channel-charts-authorize`**: Authorize a chart upload from workhorse
@@ -705,9 +705,9 @@ Add to your `claude_desktop_config.json`:
 - **`delete-api-v4-projects-id-uploads-upload-id`**: Delete a single project upload by ID
 - **`get-api-v4-projects-id-uploads-secret-filename`**: Download a single project upload by secret and filename
 - **`delete-api-v4-projects-id-uploads-secret-filename`**: Delete a single project upload by secret and filename
-- **`get-api-v4-projects-id-packages-maven*path-file-name`**: Download the maven package file at a project level
-- **`put-api-v4-projects-id-packages-maven*path-file-name`**: Upload the maven package file
-- **`put-api-v4-projects-id-packages-maven*path-file-name-authorize`**: Workhorse authorize the maven package file upload
+- **`get-api-v4-projects-id-packages-maven`**: Download the maven package file at a project level
+- **`put-api-v4-projects-id-packages-maven`**: Upload the maven package file
+- **`put-api-v4-projects-id-packages-maven`**: Workhorse authorize the maven package file upload
 - **`get-api-v4-projects-id-members`**: Gets a list of group or project members viewable by the authenticated user.
 - **`post-api-v4-projects-id-members`**: Adds a member to a group or project.
 - **`get-api-v4-projects-id-members-all`**: Gets a list of group or project members viewable by the authenticated user, including those who gained membership through ancestor group.
@@ -751,36 +751,36 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-merge-requests-merge-request-iid-related-issues`**: List issues related to merge request
 - **`get-api-v4-projects-id-merge-requests-merge-request-iid-versions`**: Get a list of merge request diff versions
 - **`get-api-v4-projects-id-merge-requests-merge-request-iid-versions-version-id`**: Get a single merge request diff version
-- **`put-api-v4-projects-id-packages-ml-models-model-version-id-files(*path)file-name-authorize`**: Workhorse authorize model package file
-- **`put-api-v4-projects-id-packages-ml-models-model-version-id-files(*path)file-name`**: Workhorse upload model package file
-- **`get-api-v4-projects-id-packages-ml-models-model-version-id-files(*path)file-name`**: Download an ml_model package file
-- **`get-api-v4-projects-id-packages-npm-package*package-name-dist-tags`**: Get all tags for a given an NPM package
-- **`put-api-v4-projects-id-packages-npm-package*package-name-dist-tags-tag`**: Create or Update the given tag for the given NPM package and version
-- **`delete-api-v4-projects-id-packages-npm-package*package-name-dist-tags-tag`**: Deletes the given tag
+- **`put-api-v4-projects-id-packages-ml-models-model-version-id-files(`**: Workhorse authorize model package file
+- **`put-api-v4-projects-id-packages-ml-models-model-version-id-files(`**: Workhorse upload model package file
+- **`get-api-v4-projects-id-packages-ml-models-model-version-id-files(`**: Download an ml_model package file
+- **`get-api-v4-projects-id-packages-npm-package`**: Get all tags for a given an NPM package
+- **`put-api-v4-projects-id-packages-npm-package`**: Create or Update the given tag for the given NPM package and version
+- **`delete-api-v4-projects-id-packages-npm-package`**: Deletes the given tag
 - **`post-api-v4-projects-id-packages-npm-npm-v1-security-advisories-bulk`**: NPM registry bulk advisory endpoint
 - **`post-api-v4-projects-id-packages-npm-npm-v1-security-audits-quick`**: NPM registry quick audit endpoint
-- **`get-api-v4-projects-id-packages-npm*package-name-*file-name`**: Download the NPM tarball
+- **`get-api-v4-projects-id-packages-npmfile-name`**: Download the NPM tarball
 - **`put-api-v4-projects-id-packages-npm-package-name`**: Create or deprecate NPM package
-- **`get-api-v4-projects-id-packages-npm*package-name`**: NPM registry metadata endpoint
+- **`get-api-v4-projects-id-packages-npm`**: NPM registry metadata endpoint
 - **`get-api-v4-projects-id-packages-nuget-index`**: The NuGet V3 Feed Service Index
-- **`get-api-v4-projects-id-packages-nuget-symbolfiles*file-name*signature*same-file-name`**: The NuGet Symbol File Download Endpoint
+- **`get-api-v4-projects-id-packages-nuget-symbolfilessignature`**: The NuGet Symbol File Download Endpoint
 - **`get-api-v4-projects-id-packages-nuget-v2`**: The NuGet V2 Feed Service Index
 - **`put-api-v4-projects-id-packages-nuget-v2`**: The NuGet V2 Feed Package Publish endpoint
 - **`get-api-v4-projects-id-packages-nuget-v2$metadata`**: The NuGet V2 Feed Package $metadata endpoint
-- **`get-api-v4-projects-id-packages-nuget-metadata*package-name-index`**: The NuGet Metadata Service - Package name level
-- **`get-api-v4-projects-id-packages-nuget-metadata*package-name*package-version`**: The NuGet Metadata Service - Package name and version level
+- **`get-api-v4-projects-id-packages-nuget-metadata`**: The NuGet Metadata Service - Package name level
+- **`get-api-v4-projects-id-packages-nuget-metadatapackage-version`**: The NuGet Metadata Service - Package name and version level
 - **`get-api-v4-projects-id-packages-nuget-query`**: The NuGet Search Service
-- **`get-api-v4-projects-id-packages-nuget-download*package-name-index`**: The NuGet Content Service - index request
-- **`get-api-v4-projects-id-packages-nuget-download*package-name*package-version*package-filename`**: The NuGet Content Service - content request
+- **`get-api-v4-projects-id-packages-nuget-download`**: The NuGet Content Service - index request
+- **`get-api-v4-projects-id-packages-nuget-downloadpackage-version`**: The NuGet Content Service - content request
 - **`put-api-v4-projects-id-packages-nuget`**: The NuGet V3 Feed Package Publish endpoint
 - **`put-api-v4-projects-id-packages-nuget-authorize`**: The NuGet Package Authorize endpoint
 - **`put-api-v4-projects-id-packages-nuget-symbolpackage`**: The NuGet Symbol Package Publish endpoint
 - **`put-api-v4-projects-id-packages-nuget-symbolpackage-authorize`**: The NuGet Symbol Package Authorize endpoint
-- **`delete-api-v4-projects-id-packages-nuget*package-name*package-version`**: The NuGet Package Delete endpoint
+- **`delete-api-v4-projects-id-packages-nugetpackage-version`**: The NuGet Package Delete endpoint
 - **`put-api-v4-projects-id-packages-nuget-v2-authorize`**: The NuGet V2 Feed Package Authorize endpoint
-- **`get-api-v4-projects-project-id-packages-nuget-v2-findpackagesbyid\(\)`**: The NuGet V2 Feed Find Packages by ID endpoint
-- **`get-api-v4-projects-project-id-packages-nuget-v2-packages\(\)`**: The NuGet V2 Feed Enumerate Packages endpoint
-- **`get-api-v4-projects-project-id-packages-nuget-v2-packages\(id&#x3D;&#x27;*package-name&#x27;,version&#x3D;&#x27;*package-version&#x27;\)`**: The NuGet V2 Feed Single Package Metadata endpoint
+- **`get-api-v4-projects-project-id-packages-nuget-v2-findpackagesbyid`**: The NuGet V2 Feed Find Packages by ID endpoint
+- **`get-api-v4-projects-project-id-packages-nuget-v2-packages`**: The NuGet V2 Feed Enumerate Packages endpoint
+- **`get-api-v4-projects-project-id-packages-nuget-v2-packages`**: The NuGet V2 Feed Single Package Metadata endpoint
 - **`get-api-v4-projects-id-packages-package-id-package-files`**: List package files
 - **`delete-api-v4-projects-id-packages-package-id-package-files-package-file-id`**: Delete a package file
 - **`delete-api-v4-projects-id-pages`**: Unpublish pages
@@ -914,9 +914,9 @@ Add to your `claude_desktop_config.json`:
 - **`post-api-v4-projects-id-protected-tags`**: Protect a single tag or wildcard
 - **`get-api-v4-projects-id-protected-tags-name`**: Get a single protected tag
 - **`delete-api-v4-projects-id-protected-tags-name`**: Unprotect a single tag
-- **`get-api-v4-projects-id-packages-pypi-files-sha256*file-identifier`**: The PyPi package download endpoint
+- **`get-api-v4-projects-id-packages-pypi-files-sha256`**: The PyPi package download endpoint
 - **`get-api-v4-projects-id-packages-pypi-simple`**: The PyPi Simple Project Index Endpoint
-- **`get-api-v4-projects-id-packages-pypi-simple*package-name`**: The PyPi Simple Project Package Endpoint
+- **`get-api-v4-projects-id-packages-pypi-simple`**: The PyPi Simple Project Package Endpoint
 - **`post-api-v4-projects-id-packages-pypi`**: The PyPi Package upload endpoint
 - **`post-api-v4-projects-id-packages-pypi-authorize`**: Authorize the PyPi package upload from workhorse
 - **`get-api-v4-projects-id-releases`**: List Releases
@@ -924,8 +924,8 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-releases-tag-name`**: Get a release by a tag name
 - **`put-api-v4-projects-id-releases-tag-name`**: Update a release
 - **`delete-api-v4-projects-id-releases-tag-name`**: Delete a release
-- **`get-api-v4-projects-id-releases-tag-name-downloads*direct-asset-path`**: Download a project release asset file
-- **`get-api-v4-projects-id-releases-permalink-latest()(*suffix-path)`**: Get the latest project release
+- **`get-api-v4-projects-id-releases-tag-name-downloads`**: Download a project release asset file
+- **`get-api-v4-projects-id-releases-permalink-latest(`**: Get the latest project release
 - **`post-api-v4-projects-id-releases-tag-name-evidence`**: Collect release evidence
 - **`get-api-v4-projects-id-releases-tag-name-assets-links`**: List links of a release
 - **`post-api-v4-projects-id-releases-tag-name-assets-links`**: Create a release link
@@ -954,8 +954,8 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-projects-id-issues-eventable-id-resource-milestone-events-event-id`**: Get single Issue milestone event
 - **`get-api-v4-projects-id-merge-requests-eventable-id-resource-milestone-events`**: List project Merge request milestone events
 - **`get-api-v4-projects-id-merge-requests-eventable-id-resource-milestone-events-event-id`**: Get single Merge request milestone event
-- **`get-api-v4-projects-id-packages-rpm-repodata*file-name`**: Download repository metadata files
-- **`get-api-v4-projects-id-packages-rpm*package-file-id*file-name`**: Download RPM package files
+- **`get-api-v4-projects-id-packages-rpm-repodata`**: Download repository metadata files
+- **`get-api-v4-projects-id-packages-rpmfile-name`**: Download RPM package files
 - **`post-api-v4-projects-id-packages-rpm`**: Upload a RPM package
 - **`post-api-v4-projects-id-packages-rpm-authorize`**: Authorize package upload from workhorse
 - **`get-api-v4-projects-id-packages-rubygems-file-name`**: Download the spec index file
@@ -971,9 +971,9 @@ Add to your `claude_desktop_config.json`:
 - **`delete-api-v4-projects-id-repository-tags-tag-name`**: Delete a repository tag
 - **`get-api-v4-projects-id-repository-tags-tag-name-signature`**: Get a tag&#x27;s signature
 - **`get-api-v4-projects-id-packages-terraform-modules-module-name-module-system`**: Download the latest version of a module
-- **`get-api-v4-projects-id-packages-terraform-modules-module-name-module-system*module-version`**: Download a specific version of a module
-- **`put-api-v4-projects-id-packages-terraform-modules-module-name-module-system*module-version-file-authorize`**: Workhorse authorize Terraform Module package file
-- **`put-api-v4-projects-id-packages-terraform-modules-module-name-module-system*module-version-file`**: Upload Terraform Module package file
+- **`get-api-v4-projects-id-packages-terraform-modules-module-name-module-system`**: Download a specific version of a module
+- **`put-api-v4-projects-id-packages-terraform-modules-module-name-module-system`**: Workhorse authorize Terraform Module package file
+- **`put-api-v4-projects-id-packages-terraform-modules-module-name-module-system`**: Upload Terraform Module package file
 - **`get-api-v4-projects-id-terraform-state-name`**: Get a Terraform state by its name
 - **`post-api-v4-projects-id-terraform-state-name`**: Add a new Terraform state or update an existing one
 - **`delete-api-v4-projects-id-terraform-state-name`**: Delete a Terraform state of a certain name
@@ -1045,8 +1045,8 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-jobs-id-artifacts`**: Download the artifacts file for job
 - **`get-api-v4-group-id-packages-composer-packages`**: Composer packages endpoint at group level
 - **`get-api-v4-group-id-packages-composer-psha`**: Composer packages endpoint at group level for packages list
-- **`get-api-v4-group-id-packages-composer-p2*package-name`**: Composer v2 packages p2 endpoint at group level for package versions metadata
-- **`get-api-v4-group-id-packages-composer*package-name`**: Composer packages endpoint at group level for package versions metadata
+- **`get-api-v4-group-id-packages-composer-p2`**: Composer v2 packages p2 endpoint at group level for package versions metadata
+- **`get-api-v4-group-id-packages-composer`**: Composer packages endpoint at group level for package versions metadata
 - **`get-api-v4-packages-conan-v1-users-authenticate`**: Authenticate user against conan CLI
 - **`get-api-v4-packages-conan-v1-users-check-credentials`**: Check for valid user credentials per conan CLI
 - **`get-api-v4-packages-conan-v1-conans-search`**: Search for packages
@@ -1067,19 +1067,19 @@ Add to your `claude_desktop_config.json`:
 - **`get-api-v4-packages-conan-v1-files-package-name-package-version-package-username-package-channel-recipe-revision-package-conan-package-reference-package-revision-file-name`**: Download package files
 - **`put-api-v4-packages-conan-v1-files-package-name-package-version-package-username-package-channel-recipe-revision-package-conan-package-reference-package-revision-file-name`**: Upload package files
 - **`put-api-v4-packages-conan-v1-files-package-name-package-version-package-username-package-channel-recipe-revision-package-conan-package-reference-package-revision-file-name-authorize`**: Workhorse authorize the conan package file
-- **`get-api-v4-packages-maven*path-file-name`**: Download the maven package file at instance level
-- **`get-api-v4-packages-npm-package*package-name-dist-tags`**: Get all tags for a given an NPM package
-- **`put-api-v4-packages-npm-package*package-name-dist-tags-tag`**: Create or Update the given tag for the given NPM package and version
-- **`delete-api-v4-packages-npm-package*package-name-dist-tags-tag`**: Deletes the given tag
+- **`get-api-v4-packages-maven`**: Download the maven package file at instance level
+- **`get-api-v4-packages-npm-package`**: Get all tags for a given an NPM package
+- **`put-api-v4-packages-npm-package`**: Create or Update the given tag for the given NPM package and version
+- **`delete-api-v4-packages-npm-package`**: Deletes the given tag
 - **`post-api-v4-packages-npm-npm-v1-security-advisories-bulk`**: NPM registry bulk advisory endpoint
 - **`post-api-v4-packages-npm-npm-v1-security-audits-quick`**: NPM registry quick audit endpoint
-- **`get-api-v4-packages-npm*package-name`**: NPM registry metadata endpoint
+- **`get-api-v4-packages-npm`**: NPM registry metadata endpoint
 - **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system-versions`**: List versions for a module
 - **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system-download`**: Get download location for the latest version of a module
 - **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system`**: Get details about the latest version of a module
-- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system*module-version-download`**: Get download location for specific version of a module
-- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system*module-version-file`**: Download specific version of a module
-- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system*module-version`**: Get details about specific version of a module
+- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system`**: Get download location for specific version of a module
+- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system`**: Download specific version of a module
+- **`get-api-v4-packages-terraform-modules-v1-module-namespace-module-name-module-system`**: Get details about specific version of a module
 - **`post-api-v4-container-registry-event-events`**: Receives notifications from the container registry when an operation occurs
 - **`get-api-v4-registry-repositories-id`**: Get a container repository
 - **`get-api-v4-events`**: List currently authenticated user&#x27;s events
