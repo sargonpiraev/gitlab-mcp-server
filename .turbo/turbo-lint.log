@@ -1,0 +1,6 @@
+
+
+> @sargonpiraev/gitlab-mcp-server@v4 lint
+> eslint ./src --ext .ts
+
+[1G[0K
