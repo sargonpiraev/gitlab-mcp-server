@@ -49,7 +49,7 @@ npx -y @smithery/cli@latest install @sargonpiraev/gitlab-mcp-server --client <CL
 
 #### Cursor One-Click Installation
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=@sargonpiraev/gitlab-mcp-server&config=)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=@sargonpiraev/gitlab-mcp-server&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBzYXJnb25waXJhZXYvZ2l0bGFiLW1jcC1zZXJ2ZXIiXSwiZW52Ijp7IkdJVExBQl9BUElfVE9LRU4iOiJ5b3VyX2dpdGxhYl9hcGlfdG9rZW5faGVyZSJ9fQ==)
 
 #### Manual Configuration
 
